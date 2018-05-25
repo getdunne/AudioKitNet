@@ -1,4 +1,5 @@
-#AudioKit
+# AudioKit
+
 This folder contains a COPY of part of the AudioKit/Core tree from the main **AudioKit** repo.
 
 The idea is that this code will eventually go into the main AudioKit/Core tree (once it's developed, debugged and cleaned-up), and so we keep the tree structure and folder names basically identical.
