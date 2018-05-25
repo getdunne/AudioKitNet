@@ -1,4 +1,4 @@
-# AudioKit-net
+# AudioKitNet
 ## (Nearly) Instant gratification
 There are a few steps to go through before you can play with this code. Go to the **WebGUI** folder and read the [README.md file](WebGui/README.md) there.
 
