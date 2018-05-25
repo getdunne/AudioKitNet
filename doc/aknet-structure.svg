@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="135 115 905 572" width="905" height="572">
+  <defs>
+    <font-face font-family="Helvetica Neue" font-size="16" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -7 18 14" markerWidth="18" markerHeight="14" color="black">
+      <g>
+        <path d="M 16 0 L 0 -6 L 0 6 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker_2" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-17 -7 18 14" markerWidth="18" markerHeight="14" color="black">
+      <g>
+        <path d="M -16 0 L 0 6 L 0 -6 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <font-face font-family="Helvetica Neue" font-size="14" panose-1="2 0 5 3 0 0 0 9 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="-857.1429" x-height="517" cap-height="714" ascent="957.0007" descent="-212.99744" font-style="italic" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue-Italic"/>
+      </font-face-src>
+    </font-face>
+  </defs>
+  <metadata> Produced by OmniGraffle 7.7.1 
+    <dc:date>2018-05-24 19:32:43 +0000</dc:date>
+  </metadata>
+  <g id="Canvas_1" fill-opacity="1" stroke-dasharray="none" stroke="none" stroke-opacity="1" fill="none">
+    <title>Canvas 1</title>
+    <g id="Canvas_1: Layer 1">
+      <title>Layer 1</title>
+      <g id="Graphic_3">
+        <rect x="165" y="151" width="276" height="173" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(170 156)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="85.168" y="15">Web Browser</tspan>
+        </text>
+      </g>
+      <g id="Graphic_4">
+        <rect x="203" y="201" width="200" height="98" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(208 240.776)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="62.864" y="15">Web GUI</tspan>
+        </text>
+      </g>
+      <g id="Graphic_6">
+        <rect x="516" y="151" width="276" height="173" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(521 156)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="76.56" y="15">VST or AU Host</tspan>
+        </text>
+      </g>
+      <g id="Graphic_5">
+        <rect x="554" y="201" width="200" height="98" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(559 240.776)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="40.624" y="15">NetVST plug-in</tspan>
+        </text>
+      </g>
+      <g id="Graphic_8">
+        <rect x="136" y="513" width="684" height="173" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(141 518)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="313.896" y="15">Server</tspan>
+        </text>
+      </g>
+      <g id="Graphic_7">
+        <rect x="554" y="559" width="200" height="102" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(559 600.776)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="17.368" y="15">DSP Service Program</tspan>
+        </text>
+      </g>
+      <g id="Graphic_10">
+        <rect x="203" y="559" width="200" height="102" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(208 600.776)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="51.296" y="15">websocketd</tspan>
+        </text>
+      </g>
+      <g id="Line_11">
+        <line x1="654" y1="316.9" x2="654" y2="541.1" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_12">
+        <line x1="303" y1="316.9" x2="303" y2="541.1" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_13">
+        <line x1="420.9" y1="610" x2="536.1" y2="610" marker-end="url(#FilledArrow_Marker)" marker-start="url(#FilledArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_14">
+        <text transform="translate(221 381.304)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="14" font-style="italic" font-weight="400" fill="black" x=".302" y="13">websocket</tspan>
+        </text>
+      </g>
+      <g id="Graphic_15">
+        <text transform="translate(668 381.304)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="14" font-style="italic" font-weight="400" fill="black" x=".342" y="13">standard socket</tspan>
+        </text>
+      </g>
+      <g id="Graphic_16">
+        <text transform="translate(439.5 586.304)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="14" font-style="italic" font-weight="400" fill="black" x=".101" y="13">stdin, stdout</tspan>
+        </text>
+      </g>
+      <g id="Graphic_17">
+        <rect x="136" y="116" width="684" height="234" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(141 121)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="276.544" y="15">User’s Computer</tspan>
+        </text>
+      </g>
+      <g id="Graphic_19">
+        <rect x="136" y="418" width="686" height="57" fill="white"/>
+        <rect x="136" y="418" width="686" height="57" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(141 437.276)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="273.552" y="15">LAN (or loopback)</tspan>
+        </text>
+      </g>
+      <g id="Line_23">
+        <path d="M 654 418.41667 L 654.08984 474.83984 L 654.08984 474.83984" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,4.0" stroke-width="1"/>
+      </g>
+      <g id="Line_27">
+        <path d="M 303 418.16667 L 303.0565 475.03985 L 303.0565 475.03985" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4.0,4.0" stroke-width="1"/>
+      </g>
+      <g id="Graphic_28">
+        <rect x="862" y="258" width="177" height="57" fill="white"/>
+        <rect x="862" y="258" width="177" height="57" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(867 277.276)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="22.908" y="15">MIDI controller(s)</tspan>
+        </text>
+      </g>
+      <g id="Graphic_29">
+        <rect x="862" y="161" width="177" height="57" fill="white"/>
+        <rect x="862" y="161" width="177" height="57" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(867 180.276)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="7.628" y="15">Audio output devices</tspan>
+        </text>
+      </g>
+      <g id="Line_30">
+        <line x1="809.9" y1="288.6" x2="862" y2="288.6" marker-start="url(#FilledArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_32">
+        <line x1="793" y1="195" x2="845.1" y2="195" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>
