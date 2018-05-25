@@ -45,5 +45,5 @@ Creating GUIs using web technologies has many advantages:
 
 Here is an example of a working web GUI for a new synthesizer based on new AudioKitCore code, which will remain in this repo until it's further fleshed-out and tested, then moved to the [main AudioKit repo](https://github.com/AudioKit/AudioKit). (Note not all synth parameters are available from this GUI yet.)
 
-![web-gui-1.png](.\web-gui-1.png)
+![web-gui-1.png](web-gui-1.png)
 
