@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="knob.js" defer></script>
+    <script src="connect.js" defer></script>
+    <script src="setup.js" defer></script>
+  </head>
+  <body>
+    <h1>Web UI test</h1>
+    <p>
+      <button id="connectBtn" onClick="doConnect()">Connect</button>
+    </p>
+    <div class="controls">
+      <h2>Oscillator 1</h2>
+      <svg id="osc1Phases" />
+    </div>
+    <div class="controls">
+      <h2>Oscillator 2</h2>
+      <svg id="osc2PitchOffset" />
+    </div>
+    <div class="controls">
+      <h2>Amplitude Envelope</h2>
+      <svg id="ampAttack" />
+      <svg id="ampDecay" />
+      <svg id="ampSustain" />
+      <svg id="ampRelease" />
+    </div>
+    <div class="controls">
+      <h2>Filter Envelope</h2>
+      <svg id="fltAttack" />
+      <svg id="fltDecay" />
+      <svg id="fltSustain" />
+      <svg id="fltRelease" />
+    </div>
+  </body>
+</html>

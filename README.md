@@ -1,4 +1,8 @@
 # AudioKit-net
+## (Nearly) Instant gratification
+There are a few steps to go through before you can play with this code. Go to the **WebGUI** folder and read the [README.md file](WebGui/README.md) there.
+
+## What's this all about?
 This repository features code to make audio DSP functions available across TCP/IP networks. There are at least four reasons to do this (click on the links for details):
 
 1. To support and simplify [cross-platform audio DSP development](doc/cross-platform-dev.md).
@@ -9,4 +13,4 @@ This repository features code to make audio DSP functions available across TCP/I
 The basic networking protocol and techniques for network bridging were developed as part of the author's [NetVST Project](http://netvst.org/wiki). In the spring of 2018, it became obvious that the NetVST plug-ins could be used to bridge arbitrary DSP code to standard DAWs without additional platform-specific adapter code, facilitating both development and use of AudioKit Core DSP code on non-Apple platforms. This led to a decision to publish all relevant code as part of a new AudioKit repo (this one) on GitHub.
 
 ## Work in progress
-This repo is still a work in progress. Only the primary documentation files have been published so far.
+This repo is very much a work-in-progress, and will remain so for quite a while. What's here is little more than a proof of concept now, but I have high hopes for it in the near future!

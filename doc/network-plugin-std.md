@@ -26,7 +26,7 @@ The key similarity among all these approaches (with NetVST as the only exception
 The [NetVST project](http://netvst.org/wiki) was an application of method 2 in the list above, which allowed VST 2.x plug-ins to be accessed (either locally or across a LAN) by both macOS and Windows DAWs. It consisted of a VST 2.x host program for Windows (both 32-bit and 64-bit builds), capable of receiving/transmitting MIDI, audio, and control data via a TCP/IP network socket, plus both AU and VST 2.x plug-ins (again 32- and 64-bit) capable of connecting to that socket. Because socket connections can be made between different processes on a single computer (using the virtual *loopback* network interface), use of an actual LAN is optional.
 
 The NetVST software has been used mainly as a way to extend the usefulness of older, 32-bit-only Windows VST 2.x plug-ins (of which there are thousands, nearly all free). Although it works well, it has two serious limitations:
-1. It is NOT open-source (for reasons too complex to elaborate here).
+1. It is NOT open-source (see [NetVST_Windows/README.md](NetVST_Windows/README.md) for the reasons).
 2. It has no mechanism to present a bridged plug-in's GUI on the same screen as the host DAW. That is, it provides bridging of the DSP aspects of plug-ins, not the GUI aspects.
 
 Despite these liminations, the various NetVST plug-ins, which effectively allow any compatible DAW to connect to a networked DSP service process (*daemon*), are highly useful tools to support development of a new and fully open network plug-in standard.

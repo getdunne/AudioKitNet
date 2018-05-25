@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{D77E8109-B858-4C6D-B6A9-D026054898EB}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="VST SDK">
+      <UniqueIdentifier>{2cf8f20d-2283-420e-b20c-43b3463bd9b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VST SDK\Interfaces">
+      <UniqueIdentifier>{e1279214-9805-434a-9eed-8a825ae9431f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VST SDK\SDK 2.4">
+      <UniqueIdentifier>{f2393ac9-5dc5-4db2-9774-10243fc0d76d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{41c0d6ca-c2bb-403e-906a-1b02a8e57543}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\source\NetWrapper.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\vstsdk2.4\public.sdk\source\vst2.x\aeffeditor.h">
+      <Filter>VST SDK\SDK 2.4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\vstsdk2.4\public.sdk\source\vst2.x\audioeffect.h">
+      <Filter>VST SDK\SDK 2.4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\vstsdk2.4\public.sdk\source\vst2.x\audioeffectx.h">
+      <Filter>VST SDK\SDK 2.4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\vstsdk2.4\pluginterfaces\vst2.x\vstfxstore.h">
+      <Filter>VST SDK\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\vstsdk2.4\pluginterfaces\vst2.x\aeffect.h">
+      <Filter>VST SDK\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\vstsdk2.4\pluginterfaces\vst2.x\aeffectx.h">
+      <Filter>VST SDK\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\TRACE.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\MySocketLib.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\source\NetWrapper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\vstsdk2.4\public.sdk\source\vst2.x\audioeffect.cpp">
+      <Filter>VST SDK\SDK 2.4</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\vstsdk2.4\public.sdk\source\vst2.x\audioeffectx.cpp">
+      <Filter>VST SDK\SDK 2.4</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\vstsdk2.4\public.sdk\source\vst2.x\vstplugmain.cpp">
+      <Filter>VST SDK\SDK 2.4</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\MySocketLib.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

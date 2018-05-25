@@ -1,0 +1,11 @@
+body {
+    font-family: sans-serif;
+    background-color: lightGray;
+}
+
+.controls {
+    border: 1px solid black;
+    background-color: darkGray;
+    margin-top: 10px;
+    padding-left: 20px;
+}
