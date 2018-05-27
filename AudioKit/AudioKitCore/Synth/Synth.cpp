@@ -92,8 +92,8 @@ namespace AudioKitCore {
         }
         voiceManager.init(vpa, MAX_POLYPHONY, &renderPrepCallback, this);
 
-        //loadSfz("D:\\Desktop\\Sounds\\MM Dreams SFZ", "BASS Ambi Acoustik.sfz", 0);
-        //loadSfz("D:\\Desktop\\Sounds\\MM Pads SFZ", "PAD-Pastoral Warmth for Sad Days.sfz", 1);
+        loadSfz("D:\\Desktop\\Sounds\\MM Dreams SFZ", "BASS Ambi Acoustik.sfz", 0);
+        loadSfz("D:\\Desktop\\Sounds\\MM Pads SFZ", "PAD-Pastoral Warmth for Sad Days.sfz", 1);
 
         return 0;   // no error
     }
@@ -375,7 +375,7 @@ namespace AudioKitCore {
         set["osc1FreqSpread"] = [this](char* in) { voiceParams.osc1.freqSpread = atof(in); updateOsc1(); };
         set["osc1PanSpread"] = [this](char* in) { voiceParams.osc1.panSpread = atof(in); updateOsc1(); };
         set["osc1PitchOffset"] = [this](char* in) { voiceParams.osc1.pitchOffset = atof(in); updateOsc1(); };
-        set["osc1MixLevel"] = [this](char* in) { voiceParams.osc1.mixLevel = atof(in); updateOsc1(); };
+        set["osc1MixLevel"] = [this](char* in) { voiceParams.osc1.mixLevel = atof(in); };
 
         get["osc2Phases"] = [this](char* out) { sprintf(out, "%d", voiceParams.osc2.phases); };
         get["osc2FreqSpread"] = [this](char* out) { sprintf(out, "%g", voiceParams.osc2.freqSpread); };
@@ -386,7 +386,15 @@ namespace AudioKitCore {
         set["osc2FreqSpread"] = [this](char* in) { voiceParams.osc2.freqSpread = atof(in); updateOsc2(); };
         set["osc2PanSpread"] = [this](char* in) { voiceParams.osc2.panSpread = atof(in); updateOsc2(); };
         set["osc2PitchOffset"] = [this](char* in) { voiceParams.osc2.pitchOffset = atof(in); updateOsc2(); };
-        set["osc2MixLevel"] = [this](char* in) { voiceParams.osc2.mixLevel = atof(in); updateOsc2(); };
+        set["osc2MixLevel"] = [this](char* in) { voiceParams.osc2.mixLevel = atof(in); };
+
+        get["smp1MixLevel"] = [this](char* out) { sprintf(out, "%g", voiceParams.smp1.mixLevel); };
+        get["smp2MixLevel"] = [this](char* out) { sprintf(out, "%g", voiceParams.smp2.mixLevel); };
+        set["smp1MixLevel"] = [this](char* in) { voiceParams.smp1.mixLevel = atof(in); };
+        set["smp2MixLevel"] = [this](char* in) { voiceParams.smp2.mixLevel = atof(in); };
+
+        get["masterVol"] = [this](char* out) { sprintf(out, "%g", modParams.masterVol); };
+        set["masterVol"] = [this](char* in) { modParams.masterVol = atof(in); };
 
         get["ampAttack"] = [this](char* out) { sprintf(out, "%f", ampEGParams.getAttackTimeSeconds()); };
         get["ampDecay"] = [this](char* out) { sprintf(out, "%f", ampEGParams.getDecayTimeSeconds()); };
@@ -405,6 +413,15 @@ namespace AudioKitCore {
         set["fltDecay"] = [this](char* in) { filterEGParams.setDecayTimeSeconds(atof(in)); };
         set["fltSustain"] = [this](char* in) { filterEGParams.sustainFraction = atof(in); };
         set["fltRelease"] = [this](char* in) { filterEGParams.setReleaseTimeSeconds(atof(in)); };
+
+        get["fltStages"] = [this](char* out) { sprintf(out, "%d", voiceParams.filterStages); };
+        set["fltStages"] = [this](char* in) { voiceParams.filterStages = atoi(in); updateFilters(voiceParams.filterStages); };
+        get["fltCutoff"] = [this](char* out) { sprintf(out, "%g", modParams.cutoffMultiple); };
+        set["fltCutoff"] = [this](char* in) { modParams.cutoffMultiple = atof(in); };
+        get["fltEgStrength"] = [this](char* out) { sprintf(out, "%g", modParams.cutoffEgStrength); };
+        set["fltEgStrength"] = [this](char* in) { modParams.cutoffEgStrength = atof(in); ; };
+        get["fltResonance"] = [this](char* out) { sprintf(out, "%g", -20.0f * log10(modParams.resLinear)); };
+        set["fltResonance"] = [this](char* in) { modParams.resLinear = pow(10.0, -0.05 * atof(in)); };
     }
 
     bool Synth::command(char* cmd)

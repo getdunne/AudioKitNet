@@ -7,7 +7,7 @@
     <script src="setup.js" defer></script>
   </head>
   <body>
-    <h1>Web UI test</h1>
+    <h1>Synthesizer Web GUI</h1>
     <p>
       <button id="connectBtn" onClick="doConnect()">Connect</button>
     </p>
@@ -17,7 +17,6 @@
       <svg id="osc1FreqSpread" />
       <svg id="osc1PanSpread" />
       <svg id="osc1PitchOffset" />
-      <svg id="osc1MixLevel" />
     </div>
     <div class="controls">
       <h2>Oscillator 2</h2>
@@ -25,21 +24,33 @@
       <svg id="osc2FreqSpread" />
       <svg id="osc2PanSpread" />
       <svg id="osc2PitchOffset" />
-      <svg id="osc2MixLevel" />
     </div>
     <div class="controls">
-      <h2>Amplitude Envelope</h2>
+      <h2>Amplitude</h2>
       <svg id="ampAttack" />
       <svg id="ampDecay" />
       <svg id="ampSustain" />
       <svg id="ampRelease" />
     </div>
     <div class="controls">
-      <h2>Filter Envelope</h2>
+      <h2>Filter</h2>
       <svg id="fltAttack" />
       <svg id="fltDecay" />
       <svg id="fltSustain" />
       <svg id="fltRelease" />
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <svg id="fltEgStrength" />
+      <svg id="fltCutoff" />
+      <svg id="fltResonance" />
+      <svg id="fltStages" />
+    </div>
+    <div class="controls">
+      <h2>Mixer</h2>
+      <svg id="osc1MixLevel" />
+      <svg id="osc2MixLevel" />
+      <svg id="smp1MixLevel" />
+      <svg id="smp2MixLevel" />
+      <svg id="masterVol" />
     </div>
   </body>
 </html>
