@@ -13,6 +13,8 @@
 #include "MultiSample.hpp"
 
 #include <list>
+#include <map>
+#include <functional>
 
 #define MAX_POLYPHONY 32
 #define MIDI_NOTENUMBERS 128    // MIDI offers 128 distinct note numbers
@@ -56,6 +58,11 @@ namespace AudioKitCore
     protected:
         WaveStack waveStack1, waveStack2;
         FunctionTableOscillator vibratoLFO;
+
+        // dispatch tables used by command()
+        std::map<std::string, std::function<void(char*)> > get;
+        std::map<std::string, std::function<void(char*)> > set;
+        void buildSetGetMaps();
         
         // simple parameters
         SynthVoiceParams voiceParams;

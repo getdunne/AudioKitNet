@@ -12,8 +12,7 @@ function doStart()
     
     ws.onopen = function() {
         console.log('CONNECT');
-        ws.send('osc1Phases=?\n');
-        ws.send('osc2PitchOffset=?\n');
+        for (var name in knobDict) ws.send(name + '=?\n');
         return false;
         };
 

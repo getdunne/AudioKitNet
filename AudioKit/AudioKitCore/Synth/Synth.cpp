@@ -20,6 +20,8 @@ namespace AudioKitCore {
     : pitchOffset(0.0f)
     , vibratoDepth(0.0f)
     {
+        buildSetGetMaps();
+
         modParams.masterVol = 1.0f;
         modParams.cutoffMultiple = 4.0f;
         modParams.cutoffEgStrength = 20.0f;
@@ -362,29 +364,59 @@ namespace AudioKitCore {
         return true;
     }
 
+    void Synth::buildSetGetMaps()
+    {
+        get["osc1Phases"] = [this](char* out) { sprintf(out, "%d", voiceParams.osc1.phases); };
+        get["osc1FreqSpread"] = [this](char* out) { sprintf(out, "%g", voiceParams.osc1.freqSpread); };
+        get["osc1PanSpread"] = [this](char* out) { sprintf(out, "%g", voiceParams.osc1.panSpread); };
+        get["osc1PitchOffset"] = [this](char* out) { sprintf(out, "%g", voiceParams.osc1.pitchOffset); };
+        get["osc1MixLevel"] = [this](char* out) { sprintf(out, "%g", voiceParams.osc1.mixLevel); };
+        set["osc1Phases"] = [this](char* in) { voiceParams.osc1.phases = atoi(in); updateOsc1(); };
+        set["osc1FreqSpread"] = [this](char* in) { voiceParams.osc1.freqSpread = atof(in); updateOsc1(); };
+        set["osc1PanSpread"] = [this](char* in) { voiceParams.osc1.panSpread = atof(in); updateOsc1(); };
+        set["osc1PitchOffset"] = [this](char* in) { voiceParams.osc1.pitchOffset = atof(in); updateOsc1(); };
+        set["osc1MixLevel"] = [this](char* in) { voiceParams.osc1.mixLevel = atof(in); updateOsc1(); };
+
+        get["osc2Phases"] = [this](char* out) { sprintf(out, "%d", voiceParams.osc2.phases); };
+        get["osc2FreqSpread"] = [this](char* out) { sprintf(out, "%g", voiceParams.osc2.freqSpread); };
+        get["osc2PanSpread"] = [this](char* out) { sprintf(out, "%g", voiceParams.osc2.panSpread); };
+        get["osc2PitchOffset"] = [this](char* out) { sprintf(out, "%g", voiceParams.osc2.pitchOffset); };
+        get["osc2MixLevel"] = [this](char* out) { sprintf(out, "%g", voiceParams.osc2.mixLevel); };
+        set["osc2Phases"] = [this](char* in) { voiceParams.osc2.phases = atoi(in); updateOsc2(); };
+        set["osc2FreqSpread"] = [this](char* in) { voiceParams.osc2.freqSpread = atof(in); updateOsc2(); };
+        set["osc2PanSpread"] = [this](char* in) { voiceParams.osc2.panSpread = atof(in); updateOsc2(); };
+        set["osc2PitchOffset"] = [this](char* in) { voiceParams.osc2.pitchOffset = atof(in); updateOsc2(); };
+        set["osc2MixLevel"] = [this](char* in) { voiceParams.osc2.mixLevel = atof(in); updateOsc2(); };
+
+        get["ampAttack"] = [this](char* out) { sprintf(out, "%f", ampEGParams.getAttackTimeSeconds()); };
+        get["ampDecay"] = [this](char* out) { sprintf(out, "%f", ampEGParams.getDecayTimeSeconds()); };
+        get["ampSustain"] = [this](char* out) { sprintf(out, "%f", ampEGParams.sustainFraction); };
+        get["ampRelease"] = [this](char* out) { sprintf(out, "%f", ampEGParams.getReleaseTimeSeconds()); };
+        set["ampAttack"] = [this](char* in) { ampEGParams.setAttackTimeSeconds(atof(in)); };
+        set["ampDecay"] = [this](char* in) { ampEGParams.setDecayTimeSeconds(atof(in)); };
+        set["ampSustain"] = [this](char* in) { ampEGParams.sustainFraction = atof(in); };
+        set["ampRelease"] = [this](char* in) { ampEGParams.setReleaseTimeSeconds(atof(in)); };
+
+        get["fltAttack"] = [this](char* out) { sprintf(out, "%f", filterEGParams.getAttackTimeSeconds()); };
+        get["fltDecay"] = [this](char* out) { sprintf(out, "%f", filterEGParams.getDecayTimeSeconds()); };
+        get["fltSustain"] = [this](char* out) { sprintf(out, "%f", filterEGParams.sustainFraction); };
+        get["fltRelease"] = [this](char* out) { sprintf(out, "%f", filterEGParams.getReleaseTimeSeconds()); };
+        set["fltAttack"] = [this](char* in) { filterEGParams.setAttackTimeSeconds(atof(in)); };
+        set["fltDecay"] = [this](char* in) { filterEGParams.setDecayTimeSeconds(atof(in)); };
+        set["fltSustain"] = [this](char* in) { filterEGParams.sustainFraction = atof(in); };
+        set["fltRelease"] = [this](char* in) { filterEGParams.setReleaseTimeSeconds(atof(in)); };
+    }
+
     bool Synth::command(char* cmd)
     {
-        char* arg = strchr(cmd, '=') + 1;
-        bool isQuery = (*arg == '?');
+        char *pEqual = strchr(cmd, '=');
+        char* arg = pEqual + 1;
+        *pEqual = 0;
+        std::string name(cmd);
+        *pEqual = '=';
 
-        if (HAS_PREFIX(cmd, "osc1Phases"))
-        {
-            if (isQuery) sprintf(arg, "%d", voiceParams.osc1.phases);
-            else
-            {
-                voiceParams.osc1.phases = atoi(arg);
-                updateOsc1();
-            }
-        }
-        else if (HAS_PREFIX(cmd, "osc2PitchOffset"))
-        {
-            if (isQuery) sprintf(arg, "%f", voiceParams.osc2.pitchOffset);
-            else
-            {
-                voiceParams.osc2.pitchOffset = atof(arg);
-                updateOsc2();
-            }
-        }
+        if (*arg == '?') get[name](arg);
+        else set[name](arg);
 
         return true;
     }
