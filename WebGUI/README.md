@@ -17,7 +17,7 @@ Point a web browser at ```http://localhost:8080``` and you should see the web GU
 
 Run any suitable version of the **NetSynth plug-in** ([download from here](http://netvst.org/wiki/doku.php?id=downloading_and_using_netvst), where you'll also find detailed usage instructions) in your favorite DAW, and connect it to port 27016 on your PC. You should then be able to play and record the synthesizer.
 
-Adjust the knobs in the web GUI, and you should hear the corresponding sound changes. (**Note only the top two knobs are actually connected right now**--more coming!)
+Adjust the knobs in the web GUI, and you should hear the corresponding sound changes.
 
 ## About the web-GUI code
 As I write this in late May 2018, the GUI code here is VERY rudimentary -- little more than a single SVG/Javascript-powered knob control, which isn't even very nice.
