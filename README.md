@@ -1,7 +1,7 @@
 # AudioKitNet
 
 ## (Nearly) Instant gratification
-There are a few steps to go through before you can play with this code. Go to the **WebGUI** folder and read the [README](WebGui/README.md) there.
+There are a few steps to go through before you can play with this code. Go to the **WebGUI** folder and read the [README](WebGUI/README.md) there.
 
 ## What's this all about?
 This repository features code to make audio DSP functions available across TCP/IP networks. There are at least four reasons to do this (click on the links for details):

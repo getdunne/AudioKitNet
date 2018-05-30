@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{CEFAFBFA-B8DA-42DE-86AD-35B9F0C32C20}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ServerSARAH</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>../../AudioKit/AudioKitCore/Common;../../AudioKit/AudioKitCore/Sampler;../../AudioKit/AudioKitCore/Synth;../../AudioKit/kissfft;../../AudioKit/Wavpack;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>../../AudioKit/AudioKitCore/Common;../../AudioKit/AudioKitCore/Sampler;../../AudioKit/AudioKitCore/Synth;../../AudioKit/kissfft;../../AudioKit/Wavpack;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>../../AudioKit/AudioKitCore/Common;../../AudioKit/AudioKitCore/Sampler;../../AudioKit/AudioKitCore/Synth;../../AudioKit/kissfft;../../AudioKit/Wavpack;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>../../AudioKit/AudioKitCore/Common;../../AudioKit/AudioKitCore/Sampler;../../AudioKit/AudioKitCore/Synth;../../AudioKit/kissfft;../../AudioKit/Wavpack;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\ADSREnvelope.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\FunctionTable.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\LinearRamper.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\ResonantLowPassFilter.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\SustainPedalLogic.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\VoiceBase.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\VoiceManager.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Sampler\AKSampler_Typedefs.h" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Sampler\MultiSample.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Sampler\MultiSampleOscillator.h" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Sampler\SampleBuffer.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Sampler\SampleOscillator.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Sampler\Sampler.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Sampler\SamplerVoice.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\DrawbarsOscillator.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\EnsembleOscillator.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\Envelope.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\MultiStageFilter.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\Synth.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\SynthVoice.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\WaveStack.hpp" />
+    <ClInclude Include="DSP_Server.h" />
+    <ClInclude Include="..\..\AudioKit\kissfft\kiss_fft.h" />
+    <ClInclude Include="..\..\AudioKit\kissfft\kiss_fftr.h" />
+    <ClInclude Include="..\..\AudioKit\kissfft\_kiss_fft_guts.h" />
+    <ClInclude Include="MyDSP.h" />
+    <ClInclude Include="MySocketLib.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="..\..\AudioKit\Wavpack\decorr_tables.h" />
+    <ClInclude Include="..\..\AudioKit\Wavpack\unpack3.h" />
+    <ClInclude Include="..\..\AudioKit\Wavpack\wavpack.h" />
+    <ClInclude Include="..\..\AudioKit\Wavpack\wavpack_local.h" />
+    <ClInclude Include="..\..\AudioKit\Wavpack\wavpack_version.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\ADSREnvelope.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\FunctionTable.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\ResonantLowPassFilter.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\SustainPedalLogic.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\VoiceBase.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\VoiceManager.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Sampler\MultiSample.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Sampler\MultiSampleOscillator.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Sampler\SampleBuffer.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Sampler\Sampler.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Sampler\SamplerVoice.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\DrawbarsOscillator.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\EnsembleOscillator.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\Envelope.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\MultiStageFilter.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\Synth.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\SynthVoice.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\WaveStack.cpp" />
+    <ClCompile Include="DSP_Server.cpp" />
+    <ClCompile Include="..\..\AudioKit\kissfft\kiss_fft.c" />
+    <ClCompile Include="..\..\AudioKit\kissfft\kiss_fftr.c" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MyDSP.cpp" />
+    <ClCompile Include="MySocketLib.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\common_utils.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\decorr_utils.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\entropy_utils.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\extra1.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\extra2.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\open_filename.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\open_legacy.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\open_raw.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\open_utils.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\pack.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\pack_dns.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\pack_dsd.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\pack_floats.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\pack_utils.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\read_words.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\tags.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\tag_utils.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\unpack.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\unpack3.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\unpack3_open.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\unpack3_seek.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\unpack_dsd.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\unpack_floats.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\unpack_seek.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\unpack_utils.c" />
+    <ClCompile Include="..\..\AudioKit\Wavpack\write_words.c" />
+    <ClCompile Include="WinXP_inet.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DSPServer", "DSPServer\DSPServer.vcxproj", "{CEFAFBFA-B8DA-42DE-86AD-35B9F0C32C20}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServerSynth1", "ServerSynth1\ServerSynth1.vcxproj", "{CEFAFBFA-B8DA-42DE-86AD-35B9F0C32C20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

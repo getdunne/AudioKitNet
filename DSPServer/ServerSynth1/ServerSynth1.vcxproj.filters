@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Application %28main%29</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Application %28main%29</Filter>
+    </ClInclude>
+    <ClInclude Include="DSP_Server.h">
+      <Filter>DSP Server Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="MySocketLib.h">
+      <Filter>DSP Server Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="MyDSP.h">
+      <Filter>DSP Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\Wavpack\decorr_tables.h">
+      <Filter>Wavpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\Wavpack\unpack3.h">
+      <Filter>Wavpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\Wavpack\wavpack.h">
+      <Filter>Wavpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\Wavpack\wavpack_local.h">
+      <Filter>Wavpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\Wavpack\wavpack_version.h">
+      <Filter>Wavpack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\kissfft\_kiss_fft_guts.h">
+      <Filter>kissfft</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\kissfft\kiss_fft.h">
+      <Filter>kissfft</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\kissfft\kiss_fftr.h">
+      <Filter>kissfft</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\ADSREnvelope.hpp">
+      <Filter>AKCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\FunctionTable.hpp">
+      <Filter>AKCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\LinearRamper.hpp">
+      <Filter>AKCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\ResonantLowPassFilter.hpp">
+      <Filter>AKCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\SustainPedalLogic.hpp">
+      <Filter>AKCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\VoiceBase.hpp">
+      <Filter>AKCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\VoiceManager.hpp">
+      <Filter>AKCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Sampler\AKSampler_Typedefs.h">
+      <Filter>AKSampler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Sampler\MultiSample.hpp">
+      <Filter>AKSampler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Sampler\MultiSampleOscillator.h">
+      <Filter>AKSampler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Sampler\SampleBuffer.hpp">
+      <Filter>AKSampler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Sampler\SampleOscillator.hpp">
+      <Filter>AKSampler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Sampler\Sampler.hpp">
+      <Filter>AKSampler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Sampler\SamplerVoice.hpp">
+      <Filter>AKSampler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\DrawbarsOscillator.hpp">
+      <Filter>AKSynth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\EnsembleOscillator.hpp">
+      <Filter>AKSynth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\Envelope.hpp">
+      <Filter>AKSynth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\MultiStageFilter.hpp">
+      <Filter>AKSynth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\Synth.hpp">
+      <Filter>AKSynth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\SynthVoice.hpp">
+      <Filter>AKSynth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\WaveStack.hpp">
+      <Filter>AKSynth</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Application %28main%29</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Application %28main%29</Filter>
+    </ClCompile>
+    <ClCompile Include="DSP_Server.cpp">
+      <Filter>DSP Server Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="MySocketLib.cpp">
+      <Filter>DSP Server Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="WinXP_inet.cpp">
+      <Filter>DSP Server Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="MyDSP.cpp">
+      <Filter>DSP Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\common_utils.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\decorr_utils.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\entropy_utils.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\extra1.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\extra2.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\open_filename.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\open_legacy.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\open_raw.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\open_utils.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\pack.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\pack_dns.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\pack_dsd.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\pack_floats.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\pack_utils.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\read_words.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\tag_utils.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\tags.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\unpack.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\unpack_dsd.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\unpack_floats.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\unpack_seek.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\unpack_utils.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\unpack3.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\unpack3_open.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\unpack3_seek.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\Wavpack\write_words.c">
+      <Filter>Wavpack</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\kissfft\kiss_fft.c">
+      <Filter>kissfft</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\kissfft\kiss_fftr.c">
+      <Filter>kissfft</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\ADSREnvelope.cpp">
+      <Filter>AKCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\FunctionTable.cpp">
+      <Filter>AKCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\ResonantLowPassFilter.cpp">
+      <Filter>AKCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\SustainPedalLogic.cpp">
+      <Filter>AKCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\VoiceBase.cpp">
+      <Filter>AKCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\VoiceManager.cpp">
+      <Filter>AKCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Sampler\MultiSample.cpp">
+      <Filter>AKSampler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Sampler\MultiSampleOscillator.cpp">
+      <Filter>AKSampler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Sampler\SampleBuffer.cpp">
+      <Filter>AKSampler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Sampler\Sampler.cpp">
+      <Filter>AKSampler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Sampler\SamplerVoice.cpp">
+      <Filter>AKSampler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\DrawbarsOscillator.cpp">
+      <Filter>AKSynth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\EnsembleOscillator.cpp">
+      <Filter>AKSynth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\Envelope.cpp">
+      <Filter>AKSynth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\MultiStageFilter.cpp">
+      <Filter>AKSynth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\Synth.cpp">
+      <Filter>AKSynth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\SynthVoice.cpp">
+      <Filter>AKSynth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\WaveStack.cpp">
+      <Filter>AKSynth</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="DSP Server Thread">
+      <UniqueIdentifier>{3c2ab464-b8c7-4660-9c00-dbaf543fe210}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application %28main%29">
+      <UniqueIdentifier>{a399462a-9749-4192-a01e-5323bfdbf8a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DSP Object">
+      <UniqueIdentifier>{9ceda447-47f2-429e-8d6b-8a15af166eb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Wavpack">
+      <UniqueIdentifier>{a978b9d8-55e6-4628-9750-27e0e1d49f0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kissfft">
+      <UniqueIdentifier>{82baed6e-d50e-46fc-aa93-081606cf65cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AKCommon">
+      <UniqueIdentifier>{8bba44b7-83df-4b68-a821-6e630267d288}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AKSampler">
+      <UniqueIdentifier>{70804f7b-df08-4796-9916-b2667b6b2aed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AKSynth">
+      <UniqueIdentifier>{58f4f69b-cd60-4f3a-8d44-9c03bdf8d95d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
