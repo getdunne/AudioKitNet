@@ -43,7 +43,7 @@ Creating GUIs using web technologies has many advantages:
 3. Handling of multiple DSP instances, multiple web GUI sessions, etc. is straightforward.
 4. Together with the basic real-time socket protocol used for real-time audio, MIDI and parameter changes, it provides a basis for a new, [non-proprietary, platform-independent audio plug-in technology standard](network-plugin-std.md).
 
-Here is an example of a working web GUI for a new synthesizer based on new AudioKitCore code, which will remain in this repo until it's further fleshed-out and tested, then moved to the [main AudioKit repo](https://github.com/AudioKit/AudioKit). (Note not all synth parameters are available from this GUI yet.)
+Here is an example of a working web GUI for a new synthesizer based on new AudioKitCore code, which will remain in this repo until it's further fleshed-out and tested, then moved to the [main AudioKit repo](https://github.com/AudioKit/AudioKit).
 
-![web-gui-1.png](web-gui-1.png)
+![web-gui-1.png](web-gui-2.png)
 
