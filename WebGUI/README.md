@@ -19,6 +19,8 @@ Run any suitable version of the **NetSynth plug-in** ([download from here](http:
 
 Adjust the knobs in the web GUI, and you should hear the corresponding sound changes.
 
+![](../docs/web-gui-2.png)
+
 ## About the web-GUI code
 As I write this in late May 2018, the GUI code here is VERY rudimentary -- little more than a single SVG/Javascript-powered knob control, which isn't even very nice.
 
