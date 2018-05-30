@@ -29,7 +29,7 @@ Already-written **AudioKit-net** code can "wrap" any such DSP object as a "DSP d
 
 Once the new DSP code is finished and tested to the programmer's satisfaction, it can then be wrapped as necessary to become a standard AudioKit node class.
 
-Note that a JUCE plug-in (case 3) can be written to allow the user the option to choose, at run-time, whether to run the DSP code either directly (locally) or with network bridging to a "DSP daemon" running on a server, which then acts as a [hardware accelerator](network-accel.md) to augment the CPU power of the DAW/host machine.
+Note that a JUCE plug-in (case 3) can be written to allow the user the option to choose, at run-time, whether to run the DSP code either directly (locally) or with network bridging to a "DSP daemon" running on a server, which then acts as a [hardware accelerator](hardware-accelerators.md) to augment the CPU power of the DAW/host machine.
 
 ## Simplified GUIs
 Modern web technologies, specifically HTML5, Scalable Vector Graphics (SVG), JavaScript, and WebSockets, provide all that is needed to create simple GUIs which can be hosted in any web browser. Familiar audio controls such as knobs, buttons and switches can be built, and used to generate simple text commands like "ampEGAttackSeconds=0.1" which can be sent across an open web socket, to emerge within the AudioKit-net DSP daemon program as the arguments of calls to the DSP module's `command()` function.
