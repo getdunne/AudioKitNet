@@ -116,17 +116,11 @@ namespace AudioKitCore
             pWaveTable[i] = vscale * (expf(-x) - bottom);
     }
     
-    void FunctionTableOscillator::init(double sampleRate, float frequency, int tableLength)
+    void FunctionTableOscillator::init(double sampleRate, float frequency)
     {
-        waveTable.init(tableLength);
         sampleRateHz = sampleRate;
         phase = 0.0f;
         phaseDelta = (float)(frequency / sampleRate);
-    }
-    
-    void FunctionTableOscillator::deinit()
-    {
-        waveTable.deinit();
     }
     
     void FunctionTableOscillator::setFrequency(float frequency)

@@ -82,23 +82,20 @@ namespace AudioKitCore
     // For audio-frequency oscillators, use larger tables, and ensure that your tabulated waveform is
     // low-pass filtered. Power-of-two table sizes (e.g. 1024, 2048) are ideal: Perform a forward FFT,
     // zero out high-frequency coefficients, then inverse FFT.
-    struct FunctionTableOscillator
+    struct FunctionTableOscillator : public FunctionTable
     {
         double sampleRateHz;
         float phase;
         float phaseDelta;   // normalized frequency: cycles per sample
-        FunctionTable waveTable;
         
-        ~FunctionTableOscillator() { deinit(); }
-        void init(double sampleRate, float frequency, int tableLength=DEFAULT_WAVETABLE_SIZE);
-        void deinit();
+        void init(double sampleRate, float frequency);
         
         void setFrequency(float frequency);
         
         // For typical LFO applications, we simply get one sample at a time.
         inline float getSample()
         {
-            float sample = waveTable.interp_cyclic(phase);
+            float sample = interp_cyclic(phase);
             phase += phaseDelta;
             if (phase >= 1.0f) phase -= 1.0f;
             return sample;
@@ -109,8 +106,8 @@ namespace AudioKitCore
         // "quadrature" sample which is 90 degrees out-of-phase with the first one.
         inline void getSamples(float* pInPhase, float* pQuadrature)
         {
-            *pInPhase = waveTable.interp_cyclic(phase);
-            *pQuadrature = waveTable.interp_cyclic(phase + 0.25f);
+            *pInPhase = interp_cyclic(phase);
+            *pQuadrature = interp_cyclic(phase + 0.25f);
             phase += phaseDelta;
             if (phase >= 1.0f) phase -= 1.0f;
         }
@@ -118,21 +115,17 @@ namespace AudioKitCore
     
     // WaveShaper wraps a FunctionTable and provides saved scale and offset parameters for both
     // input (x) and output (y) values.
-    struct WaveShaper
+    struct WaveShaper : public FunctionTable
     {
-        FunctionTable waveTable;
         float xScale, xOffset;
         float yScale, yOffset;
         
         WaveShaper() : xScale(1.0f), xOffset(0.0f), yScale(1.0f), yOffset(0.0f) {}
         ~WaveShaper() { deinit(); }
-        void deinit() { waveTable.deinit(); }
-        
-        void init(int tableLength=DEFAULT_WAVETABLE_SIZE) { waveTable.init(tableLength); }
         
         inline float interp(float x)
         {
-            return yScale * waveTable.interp_bounded((x - xOffset) * xScale) + yOffset;
+            return yScale * interp_bounded((x - xOffset) * xScale) + yOffset;
         }
     };
 
