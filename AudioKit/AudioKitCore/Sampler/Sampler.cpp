@@ -41,7 +41,7 @@ namespace AudioKitCore {
         sampleRate = (float)sampleRate;
         adsrEnvelopeParameters.updateSampleRate((float)(sampleRate/CHUNKSIZE));
         filterEnvelopeParameters.updateSampleRate((float)(sampleRate/CHUNKSIZE));
-        vibratoLFO.waveTable.sinusoid();
+        vibratoLFO.sinusoid();
         vibratoLFO.init(sampleRate/CHUNKSIZE, 5.0f);
 
         for (int i=0; i<MAX_POLYPHONY; i++) voice[i].init(sampleRate);

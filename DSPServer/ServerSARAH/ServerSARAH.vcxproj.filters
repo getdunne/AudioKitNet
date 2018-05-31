@@ -52,15 +52,6 @@
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\ResonantLowPassFilter.hpp">
       <Filter>AKCommon</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\SustainPedalLogic.hpp">
-      <Filter>AKCommon</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\VoiceBase.hpp">
-      <Filter>AKCommon</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\VoiceManager.hpp">
-      <Filter>AKCommon</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Sampler\AKSampler_Typedefs.h">
       <Filter>AKSampler</Filter>
     </ClInclude>
@@ -88,20 +79,32 @@
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\EnsembleOscillator.hpp">
       <Filter>AKSynth</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\Envelope.hpp">
-      <Filter>AKSynth</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\MultiStageFilter.hpp">
-      <Filter>AKSynth</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\Synth.hpp">
-      <Filter>AKSynth</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\SynthVoice.hpp">
       <Filter>AKSynth</Filter>
     </ClInclude>
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\WaveStack.hpp">
       <Filter>AKSynth</Filter>
+    </ClInclude>
+    <ClInclude Include="SarahOscillator.hpp">
+      <Filter>AKSynth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\SustainPedalLogic.hpp">
+      <Filter>AKSynth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\VoiceBase.hpp">
+      <Filter>AKSynth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\VoiceManager.hpp">
+      <Filter>AKSynth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\Envelope.hpp">
+      <Filter>AKCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="Synth.hpp">
+      <Filter>DSP Object</Filter>
+    </ClInclude>
+    <ClInclude Include="SynthVoice.hpp">
+      <Filter>DSP Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -216,15 +219,6 @@
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\ResonantLowPassFilter.cpp">
       <Filter>AKCommon</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\SustainPedalLogic.cpp">
-      <Filter>AKCommon</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\VoiceBase.cpp">
-      <Filter>AKCommon</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\VoiceManager.cpp">
-      <Filter>AKCommon</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Sampler\MultiSample.cpp">
       <Filter>AKSampler</Filter>
     </ClCompile>
@@ -246,20 +240,32 @@
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\EnsembleOscillator.cpp">
       <Filter>AKSynth</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\Envelope.cpp">
-      <Filter>AKSynth</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\MultiStageFilter.cpp">
-      <Filter>AKSynth</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\Synth.cpp">
-      <Filter>AKSynth</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\SynthVoice.cpp">
       <Filter>AKSynth</Filter>
     </ClCompile>
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\WaveStack.cpp">
       <Filter>AKSynth</Filter>
+    </ClCompile>
+    <ClCompile Include="SarahOscillator.cpp">
+      <Filter>AKSynth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\SustainPedalLogic.cpp">
+      <Filter>AKSynth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\VoiceBase.cpp">
+      <Filter>AKSynth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\VoiceManager.cpp">
+      <Filter>AKSynth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\Envelope.cpp">
+      <Filter>AKCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="Synth.cpp">
+      <Filter>DSP Object</Filter>
+    </ClCompile>
+    <ClCompile Include="SynthVoice.cpp">
+      <Filter>DSP Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

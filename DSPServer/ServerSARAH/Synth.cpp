@@ -53,7 +53,7 @@ namespace AudioKitCore {
         ampEGParams.updateSampleRate((float)(sampleRate/CHUNKSIZE));
         filterEGParams.updateSampleRate((float)(sampleRate/CHUNKSIZE));
 
-        vibratoLFO.waveTable.sinusoid();
+        vibratoLFO.sinusoid();
         vibratoLFO.init(sampleRate/CHUNKSIZE, 5.0f);
 
         voiceParams.osc1.phases = 5;

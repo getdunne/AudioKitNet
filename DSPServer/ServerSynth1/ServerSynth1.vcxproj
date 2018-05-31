@@ -156,12 +156,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\ADSREnvelope.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\Envelope.hpp" />
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\FunctionTable.hpp" />
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\LinearRamper.hpp" />
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\ResonantLowPassFilter.hpp" />
-    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\SustainPedalLogic.hpp" />
-    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\VoiceBase.hpp" />
-    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\VoiceManager.hpp" />
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Sampler\AKSampler_Typedefs.h" />
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Sampler\MultiSample.hpp" />
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Sampler\MultiSampleOscillator.h" />
@@ -171,10 +169,10 @@
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Sampler\SamplerVoice.hpp" />
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\DrawbarsOscillator.hpp" />
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\EnsembleOscillator.hpp" />
-    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\Envelope.hpp" />
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\MultiStageFilter.hpp" />
-    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\Synth.hpp" />
-    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\SynthVoice.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\SustainPedalLogic.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\VoiceBase.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\VoiceManager.hpp" />
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\WaveStack.hpp" />
     <ClInclude Include="DSP_Server.h" />
     <ClInclude Include="..\..\AudioKit\kissfft\kiss_fft.h" />
@@ -183,6 +181,8 @@
     <ClInclude Include="MyDSP.h" />
     <ClInclude Include="MySocketLib.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Synth.hpp" />
+    <ClInclude Include="SynthVoice.hpp" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="..\..\AudioKit\Wavpack\decorr_tables.h" />
     <ClInclude Include="..\..\AudioKit\Wavpack\unpack3.h" />
@@ -192,11 +192,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\ADSREnvelope.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\Envelope.cpp" />
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\FunctionTable.cpp" />
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\ResonantLowPassFilter.cpp" />
-    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\SustainPedalLogic.cpp" />
-    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\VoiceBase.cpp" />
-    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\VoiceManager.cpp" />
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Sampler\MultiSample.cpp" />
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Sampler\MultiSampleOscillator.cpp" />
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Sampler\SampleBuffer.cpp" />
@@ -204,10 +202,10 @@
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Sampler\SamplerVoice.cpp" />
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\DrawbarsOscillator.cpp" />
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\EnsembleOscillator.cpp" />
-    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\Envelope.cpp" />
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\MultiStageFilter.cpp" />
-    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\Synth.cpp" />
-    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\SynthVoice.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\SustainPedalLogic.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\VoiceBase.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\VoiceManager.cpp" />
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\WaveStack.cpp" />
     <ClCompile Include="DSP_Server.cpp" />
     <ClCompile Include="..\..\AudioKit\kissfft\kiss_fft.c" />
@@ -247,6 +245,8 @@
     <ClCompile Include="..\..\AudioKit\Wavpack\unpack_seek.c" />
     <ClCompile Include="..\..\AudioKit\Wavpack\unpack_utils.c" />
     <ClCompile Include="..\..\AudioKit\Wavpack\write_words.c" />
+    <ClCompile Include="Synth.cpp" />
+    <ClCompile Include="SynthVoice.cpp" />
     <ClCompile Include="WinXP_inet.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
