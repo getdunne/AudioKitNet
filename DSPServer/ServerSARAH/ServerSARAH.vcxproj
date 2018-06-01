@@ -156,7 +156,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\ADSREnvelope.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\BiquadFilterModel.hpp" />
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\Envelope.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\FourierFilter.hpp" />
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\FunctionTable.hpp" />
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\LinearRamper.hpp" />
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\ResonantLowPassFilter.hpp" />
@@ -170,6 +172,7 @@
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\DrawbarsOscillator.hpp" />
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\EnsembleOscillator.hpp" />
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\MultiStageFilter.hpp" />
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\SarahOscillator.hpp" />
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\SustainPedalLogic.hpp" />
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\VoiceBase.hpp" />
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\VoiceManager.hpp" />
@@ -180,7 +183,6 @@
     <ClInclude Include="..\..\AudioKit\kissfft\_kiss_fft_guts.h" />
     <ClInclude Include="MyDSP.h" />
     <ClInclude Include="MySocketLib.h" />
-    <ClInclude Include="SarahOscillator.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Synth.hpp" />
     <ClInclude Include="SynthVoice.hpp" />
@@ -193,7 +195,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\ADSREnvelope.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\BiquadFilterModel.cpp" />
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\Envelope.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\FourierFilter.cpp" />
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\FunctionTable.cpp" />
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\ResonantLowPassFilter.cpp" />
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Sampler\MultiSample.cpp" />
@@ -204,6 +208,7 @@
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\DrawbarsOscillator.cpp" />
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\EnsembleOscillator.cpp" />
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\MultiStageFilter.cpp" />
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\SarahOscillator.cpp" />
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\SustainPedalLogic.cpp" />
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\VoiceBase.cpp" />
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\VoiceManager.cpp" />
@@ -214,7 +219,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyDSP.cpp" />
     <ClCompile Include="MySocketLib.cpp" />
-    <ClCompile Include="SarahOscillator.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

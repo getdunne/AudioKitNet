@@ -36,7 +36,8 @@ namespace AudioKitCore
         void init(int tableLength=DEFAULT_WAVETABLE_SIZE);
         void deinit();
         
-        // functions for use by class FunctionTableOscillator
+        // functions to populate the waveform table
+        void loadWaveform(float* inputWaveform);
         void triangle(float amplitude=1.0f);
         void sawtooth(float amplitude=1.0f);
         void sinusoid(float amplitude=1.0f);
@@ -87,8 +88,10 @@ namespace AudioKitCore
         double sampleRateHz;
         float phase;
         float phaseDelta;   // normalized frequency: cycles per sample
+
+        FunctionTableOscillator() : phase(0.0f), phaseDelta(0.0f) {}
         
-        void init(double sampleRate, float frequency);
+        void init(double sampleRate, int tableLength = DEFAULT_WAVETABLE_SIZE);
         
         void setFrequency(float frequency);
         

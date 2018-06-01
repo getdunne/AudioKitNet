@@ -85,9 +85,6 @@
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\WaveStack.hpp">
       <Filter>AKSynth</Filter>
     </ClInclude>
-    <ClInclude Include="SarahOscillator.hpp">
-      <Filter>AKSynth</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\SustainPedalLogic.hpp">
       <Filter>AKSynth</Filter>
     </ClInclude>
@@ -105,6 +102,15 @@
     </ClInclude>
     <ClInclude Include="SynthVoice.hpp">
       <Filter>DSP Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\FourierFilter.hpp">
+      <Filter>AKCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Common\BiquadFilterModel.hpp">
+      <Filter>AKCommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\AudioKit\AudioKitCore\Synth\SarahOscillator.hpp">
+      <Filter>AKSynth</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -246,9 +252,6 @@
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\WaveStack.cpp">
       <Filter>AKSynth</Filter>
     </ClCompile>
-    <ClCompile Include="SarahOscillator.cpp">
-      <Filter>AKSynth</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\SustainPedalLogic.cpp">
       <Filter>AKSynth</Filter>
     </ClCompile>
@@ -266,6 +269,15 @@
     </ClCompile>
     <ClCompile Include="SynthVoice.cpp">
       <Filter>DSP Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\FourierFilter.cpp">
+      <Filter>AKCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Common\BiquadFilterModel.cpp">
+      <Filter>AKCommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\AudioKit\AudioKitCore\Synth\SarahOscillator.cpp">
+      <Filter>AKSynth</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

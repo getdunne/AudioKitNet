@@ -11,6 +11,7 @@
   #define _USE_MATH_DEFINES
 #endif
 #include <math.h>
+#include <string.h>
 
 namespace AudioKitCore
 {
@@ -29,7 +30,12 @@ namespace AudioKitCore
         nTableSize = 0;
         pWaveTable = 0;
     }
-    
+
+    void FunctionTable::loadWaveform(float* inputWaveform)
+    {
+        memcpy(pWaveTable, inputWaveform, nTableSize);
+    }
+
     void FunctionTable::triangle(float amplitude)
     {
         // in case user forgot, init table to size 2
@@ -116,11 +122,12 @@ namespace AudioKitCore
             pWaveTable[i] = vscale * (expf(-x) - bottom);
     }
     
-    void FunctionTableOscillator::init(double sampleRate, float frequency)
+    void FunctionTableOscillator::init(double sampleRate, int tableLength)
     {
+        FunctionTable::init(tableLength);
         sampleRateHz = sampleRate;
         phase = 0.0f;
-        phaseDelta = (float)(frequency / sampleRate);
+        phaseDelta = 0.0f;
     }
     
     void FunctionTableOscillator::setFrequency(float frequency)
