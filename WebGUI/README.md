@@ -13,7 +13,7 @@ websocketd --port 8080 --staticdir=. ..\DSPServer\x64\Debug\ServerSynth1.exe
 - "--staticdir=." defines this directory as where **websocketd** will look for files to serve over HTTP connections.
 - The rest of the command line is the relative path to the **ServerSynth1** executable.
 
-Point a web browser at ```http://localhost:8080``` and you should see the web GUI for the synthesizer implemented in **ServerSynth1**. (Substitute your PC's numeric IP address for "localhost" if your browser is running on a different machine.) Note you must click the **Connect** button to actually run the **ServerSynth1** executable, and you should remember to click it again to shut it down when you're done.
+Point a web browser at *http://localhost:8080/synth1/* and you should see the web GUI for the synthesizer implemented in **ServerSynth1**. (Substitute your PC's numeric IP address for "localhost" if your browser is running on a different machine.) Note you must click the **Connect** button to actually run the **ServerSynth1** executable, and you should remember to click it again to shut it down when you're done.
 
 Run any suitable version of the **NetSynth plug-in** ([download from here](http://netvst.org/wiki/doku.php?id=downloading_and_using_netvst), where you'll also find detailed usage instructions) in your favorite DAW, and connect it to port 27016 on your PC. You should then be able to play and record the synthesizer.
 
