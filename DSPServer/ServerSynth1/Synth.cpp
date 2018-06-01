@@ -92,8 +92,9 @@ namespace AudioKitCore {
         }
         voiceManager.init(vpa, MAX_POLYPHONY, &renderPrepCallback, this);
 
-        loadSfz("D:\\Desktop\\Sounds\\MM Dreams SFZ", "BASS Ambi Acoustik.sfz", 0);
-        loadSfz("D:\\Desktop\\Sounds\\MM Pads SFZ", "PAD-Pastoral Warmth for Sad Days.sfz", 1);
+        // Only makes sense if you have prepared sample sets on your system
+        //loadSfz("D:\\Desktop\\Sounds\\MM Dreams SFZ", "BASS Ambi Acoustik.sfz", 0);
+        //loadSfz("D:\\Desktop\\Sounds\\MM Pads SFZ", "PAD-Pastoral Warmth for Sad Days.sfz", 1);
 
         return 0;   // no error
     }

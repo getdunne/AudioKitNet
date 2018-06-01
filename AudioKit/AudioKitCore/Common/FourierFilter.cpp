@@ -17,8 +17,8 @@ namespace AudioKitCore
     {
         // allocate required memory
         fftLength = 1 << sizePowerOfTwo;
-        kiss_fftr_cfg fwd = kiss_fftr_alloc(fftLength, 0, 0, 0);
-        kiss_fftr_cfg inv = kiss_fftr_alloc(fftLength, 1, 0, 0);
+        fwd = kiss_fftr_alloc(fftLength, 0, 0, 0);
+        inv = kiss_fftr_alloc(fftLength, 1, 0, 0);
         spectrum = new kiss_fft_cpx[fftLength / 2 + 1];
         scaledSpectrum = new kiss_fft_cpx[fftLength / 2 + 1];
     }

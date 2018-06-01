@@ -16,8 +16,12 @@ namespace AudioKitCore
     class SarahOscillator : public FunctionTableOscillator, protected FourierFilter
     {
     protected:
-        float filterCutoffHz;
+        // simulated filter settings
+        float filterCutoffMultiple;
         float filterQ;
+
+        // performance variables
+        float phaseDeltaMul;            // phaseDelta multiplier for pitchbend, vibrato
 
         // helper
         void recomputeFilteredWaveform();
@@ -30,12 +34,21 @@ namespace AudioKitCore
         // after setting up base waveform, call prepare() to compute initial spectrum
         void prepare();
 
+        // setter for phaseDeltaMul
+        void setPhaseDeltaMul(float pdm) { phaseDeltaMul = pdm; }
+
         // update filter parameters: each of these triggers an inverse DFT computation
-        void setCutoffHz(float cutoffHz);
+        void setCutoffMultiple(float cutoffMultiple);
         void setQ(float newQ);
-        void setCutoffHzAndQ(float cutoffHz, float newQ);
+        void setCutoffMultipleAndQ(float cutoffMultiple, float newQ);
 
         // call getSample(), getSamples() (inherited from FunctionTableOscillator) as needed
+        inline void getSamples(float* pLeft, float* pRight, float gain)
+        {
+            float sample = FunctionTableOscillator::getSample() * gain;
+            *pLeft++ += sample;
+            *pRight++ += sample;
+        }
     };
 
 }

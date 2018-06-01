@@ -13,9 +13,10 @@ namespace AudioKitCore
 
     void SarahOscillator::init(int sizePowerOfTwo, double sampleRate)
     {
-        FunctionTableOscillator::init(sampleRate);
+        int tableLength = 1 << sizePowerOfTwo;
+        FunctionTableOscillator::init(sampleRate, tableLength);
         FourierFilter::init(sizePowerOfTwo);
-        filterCutoffHz = float(0.49 * sampleRate);
+        filterCutoffMultiple = float(FunctionTable::nTableSize / 2);
         filterQ = 1.0f;
     }
 
@@ -33,13 +34,13 @@ namespace AudioKitCore
     void SarahOscillator::recomputeFilteredWaveform()
     {
         // TODO: consider keeping track of previous cutoff/Q values and doing nothing if differences are below some threshold
-        BiquadFilterModel::setNormalizedCutoffAndQ(double(filterCutoffHz) / FunctionTableOscillator::sampleRateHz, filterQ);
+        BiquadFilterModel::setNormalizedCutoffAndQ(double(filterCutoffMultiple / FunctionTable::nTableSize), filterQ);
         FourierFilter::getFilteredWaveform(FunctionTable::pWaveTable);
     }
 
-    void SarahOscillator::setCutoffHz(float cutoffHz)
+    void SarahOscillator::setCutoffMultiple(float cutoffMultiple)
     {
-        filterCutoffHz = cutoffHz;
+        filterCutoffMultiple = cutoffMultiple;
         recomputeFilteredWaveform();
     }
 
@@ -49,9 +50,9 @@ namespace AudioKitCore
         recomputeFilteredWaveform();
     }
 
-    void SarahOscillator::setCutoffHzAndQ(float cutoffHz, float newQ)
+    void SarahOscillator::setCutoffMultipleAndQ(float cutoffMultiple, float newQ)
     {
-        filterCutoffHz = cutoffHz;
+        filterCutoffMultiple = cutoffMultiple;
         filterQ = newQ;
         recomputeFilteredWaveform();
     }

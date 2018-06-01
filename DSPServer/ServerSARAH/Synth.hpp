@@ -8,9 +8,7 @@
 
 #include "SynthVoice.hpp"
 #include "VoiceManager.hpp"
-#include "WaveStack.hpp"
 #include "SustainPedalLogic.hpp"
-#include "MultiSample.hpp"
 
 #include <list>
 #include <map>
@@ -49,21 +47,15 @@ namespace AudioKitCore
         SynthVoice voice[MAX_POLYPHONY];
         VoiceManager voiceManager;
 
-        // objects shared by all voices
-    public:
-        MultiSample multiSample1, multiSample2;
-        bool loadCompressedSampleFile(AKSampleFileDescriptor& sfd, int multiSampleIndex);
-        bool loadSfz(const char* folderPath, const char* sfzFileName, int multiSampleIndex);
-
     protected:
-        WaveStack waveStack1, waveStack2;
-        FunctionTableOscillator vibratoLFO;
-
         // dispatch tables used by command()
         std::map<std::string, std::function<void(char*)> > get;
         std::map<std::string, std::function<void(char*)> > set;
         void buildSetGetMaps();
         
+        // objects shared by all voices
+        FunctionTableOscillator vibratoLFO;
+
         // simple parameters
         SynthVoiceParams voiceParams;
         ADSREnvelopeParams ampEGParams;
@@ -71,7 +63,7 @@ namespace AudioKitCore
 
         void updateOsc1();
         void updateOsc2();
-        void updateFilters(int stages);
+        void updateFilters();
 
         // modulation parameters
         SynthModParams modParams;
