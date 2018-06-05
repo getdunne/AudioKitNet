@@ -3,10 +3,10 @@
 #include <string.h>
 #include <windows.h>
 
-//static const char* pluginDllPath = "C:\\VST_OLD\\Phadiz(P)\\Phadiz(P).dll";
+static const char* pluginDllPath = "C:\\VST_OLD\\Phadiz(P)\\Phadiz(P).dll";
 //static const char* pluginDllPath = "C:\\VstPlugins\\Synth1\\Synth1 VST.dll";
 //static const char* pluginDllPath = "C:\\VST\\OBXd\\obxd14windows\\Obxd.dll";
-static const char* pluginDllPath = "C:\\Program Files (x86)\\Vstplugins\\Phasewave\\PHASEW-V1-22.dll";
+//static const char* pluginDllPath = "C:\\Program Files (x86)\\Vstplugins\\Phasewave\\PHASEW-V1-22.dll";
 //static const char* pluginDllPath = "C:\\VST\\Tranzistow\\Tranzistow32.dll";
 
 MyDSP::MyDSP()
@@ -137,6 +137,11 @@ bool MyDSP::command(char* cmd)
         int bank = atoi(cmd + 5);
         if (bank > 127) appendMidiBankSelect(bank);
         else appendMidiBankSelect(bank);
+        return false;
+    }
+    else if (HAS_PREFIX(cmd, "tempo="))
+    {
+        plugin.setTempo(atof(cmd + 6));
         return false;
     }
     else if (HAS_PREFIX(cmd, "p"))

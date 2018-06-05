@@ -43,10 +43,13 @@ static VstIntPtr VSTCALLBACK HostCallback(AEffect* effect, VstInt32 opcode, VstI
         flags = (VstInt32)value;
         //TRACE("PLUG> HostCallback audioMasterGetTime\n index = %d, flags = %04X\n", index, flags);
         timeInfo.sampleRate = double(kSampleRate);
-        timeInfo.flags = 0;//kVstTransportPlaying | kVstPpqPosValid | kVstTempoValid | kVstBarsValid | kVstTimeSigValid;
+        timeInfo.flags = kVstTempoValid;//kVstTransportPlaying | kVstPpqPosValid | kVstTempoValid | kVstBarsValid | kVstTimeSigValid;
         result = ToVstPtr<VstTimeInfo>(&timeInfo);
         break;
 
+    case audioMasterAutomate:
+        TRACE("Set param %d to value %f\n", index, opt);
+        break;
     }
 
     return result;
@@ -116,6 +119,12 @@ PluginManager::PluginManager()
     : module(0), mainProc(0), plugin(0)
     , inputs(0), outputs(0), blockSize(0)
 {
+    timeInfo.tempo = 120.0;
+}
+
+void PluginManager::setTempo(double bpm)
+{
+    timeInfo.tempo = bpm;
 }
 
 PluginManager::~PluginManager()

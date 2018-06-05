@@ -47,6 +47,8 @@ public:
     PluginManager();
     ~PluginManager();
 
+    void setTempo(double bpm);
+
     bool load(const char* pathToPluginDll);
     bool open();
 
