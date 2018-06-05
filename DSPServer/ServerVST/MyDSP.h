@@ -27,5 +27,7 @@ protected:
 
     ParameterMap pmap;
 
-    void processParamEvent(ParamMessageStruct* event);
+    void appendMidiEvent(MIDIMessageInfoStruct* event);
+    void appendMidiProgramChange(int progNumber);
+    void appendMidiBankSelect(int bankNumber);
 };

@@ -49,15 +49,23 @@ public:
 
     bool load(const char* pathToPluginDll);
     bool open();
+
+    bool openCustomGui();
+
     void checkProperties();
     void setupParamLookup(ParameterMap &pmap);
+
     void setProgram(int index);
     void setBlockSize(int blockSize, float** buffers);
+
     float getParameter(int index);
     void setParameter(int index, float value);
+
     void processMidi(MIDIMessageInfoStruct* pMidi, int nMessages);
+
     void resume();
     void processBlock();
     void suspend();
+
     void close();
 };

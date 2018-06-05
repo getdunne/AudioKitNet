@@ -3,8 +3,10 @@
 #include <string.h>
 #include <windows.h>
 
-static const char* pluginDllPath = "C:\\VST_OLD\\Phadiz(P)\\Phadiz(P).dll";
+//static const char* pluginDllPath = "C:\\VST_OLD\\Phadiz(P)\\Phadiz(P).dll";
 //static const char* pluginDllPath = "C:\\VstPlugins\\Synth1\\Synth1 VST.dll";
+//static const char* pluginDllPath = "C:\\VST\\OBXd\\obxd14windows\\Obxd.dll";
+static const char* pluginDllPath = "C:\\Program Files (x86)\\Vstplugins\\Phasewave\\PHASEW-V1-22.dll";
 //static const char* pluginDllPath = "C:\\VST\\Tranzistow\\Tranzistow32.dll";
 
 MyDSP::MyDSP()
@@ -47,6 +49,12 @@ void MyDSP::acceptMidi(MIDIMessageInfoStruct* pMidi, int nMessages)
     pMm = midiData;
 }
 
+void MyDSP::appendMidiEvent(MIDIMessageInfoStruct* event)
+{
+    memcpy(midiData + nMidiMsgs, event, sizeof(MIDIMessageInfoStruct));
+    nMidiMsgs++;
+}
+
 void MyDSP::acceptParamChanges(ParamMessageStruct* pMsgs, int nMessages)
 {
     memcpy(paramData, pMsgs, nMessages * sizeof(ParamMessageStruct));
@@ -66,11 +74,11 @@ void MyDSP::render(float** buffers, int nFrames)
     // process parameter changes for this buffer period
     while (nParamMsgs > 0)
     {
-        processParamEvent(pPm);
+        plugin.setParameter((int)pPm->paramIndex, pPm->paramValue);
         pPm++;
         nParamMsgs--;
     }
-    // process MIDI
+    // process MIDI events
     plugin.processMidi(midiData, nMidiMsgs);
     nMidiMsgs = 0;
 
@@ -78,19 +86,57 @@ void MyDSP::render(float** buffers, int nFrames)
     plugin.processBlock();
 }
 
-void MyDSP::processParamEvent(ParamMessageStruct* event)
+void MyDSP::appendMidiProgramChange(int progNumber)
 {
-    plugin.setParameter((int)event->paramIndex, event->paramValue);
+    MIDIMessageInfoStruct midi;
+    midi.status = 0xC0;                 // C0 = program change
+    midi.channel = 0;
+    midi.data1 = 0x7F & progNumber;     // max 7-bit number
+    midi.data2 = 0;
+    midi.startFrame = 511;
+    appendMidiEvent(&midi);
+}
+
+void MyDSP::appendMidiBankSelect(int bankNumber)
+{
+    MIDIMessageInfoStruct midi;
+    midi.status = 0xB0;                 // C0 = control change
+    midi.channel = 0;
+    midi.data1 = 32;                    // CC#32 = bank select LSB
+    midi.data2 = 0x7F & bankNumber;     // lower 7 bits
+    midi.startFrame = 511;              // last frame
+    appendMidiEvent(&midi);
+
+    midi.data1 = 0;                     // CC#0 = bank select MSB
+    midi.data2 = 0x7F & (bankNumber >> 7); // upper 7 bits
+    appendMidiEvent(&midi);
 }
 
 #define HAS_PREFIX(string, prefix) (strncmp(string, prefix, strlen(prefix)) == 0)
+#define USE_MIDI_PROG_CHANGE
 
 bool MyDSP::command(char* cmd)
 {
+    if (HAS_PREFIX(cmd, "edit"))
+    {
+        plugin.openCustomGui();
+        return false;
+    }
     if (HAS_PREFIX(cmd, "prog="))
     {
+#ifdef USE_MIDI_PROG_CHANGE
+        appendMidiProgramChange(atoi(cmd + 5));
+#else
         int progIndex = atoi(cmd + 5);
         plugin.setProgram(progIndex);
+#endif
+        return false;
+    }
+    else if (HAS_PREFIX(cmd, "bank="))
+    {
+        int bank = atoi(cmd + 5);
+        if (bank > 127) appendMidiBankSelect(bank);
+        else appendMidiBankSelect(bank);
         return false;
     }
     else if (HAS_PREFIX(cmd, "p"))
@@ -108,6 +154,7 @@ bool MyDSP::command(char* cmd)
     else
     {
         char *pEqual = strchr(cmd, '=');
+        if (!pEqual) return false;
         char* arg = pEqual + 1;
         *pEqual = 0;
         std::string paramName(cmd);

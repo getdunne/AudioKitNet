@@ -27,8 +27,7 @@ static VstIntPtr VSTCALLBACK HostCallback(AEffect* effect, VstInt32 opcode, VstI
         }
     }
 
-    if (!filtered)
-        TRACE("PLUG> HostCallback (opcode %d)\n index = %d, value = %p, ptr = %p, opt = %f\n", opcode, index, FromVstPtr<void>(value), ptr, opt);
+    //if (!filtered) TRACE("PLUG> HostCallback (opcode %d)\n index = %d, value = %p, ptr = %p, opt = %f\n", opcode, index, FromVstPtr<void>(value), ptr, opt);
 
     switch (opcode)
     {
@@ -37,12 +36,12 @@ static VstIntPtr VSTCALLBACK HostCallback(AEffect* effect, VstInt32 opcode, VstI
         break;
 
     case audioMasterCanDo:
-        TRACE(" --> CanDo: %s\n", (char*)ptr);
+        //TRACE(" --> CanDo: %s\n", (char*)ptr);
         break;
 
     case audioMasterGetTime:
         flags = (VstInt32)value;
-        TRACE("PLUG> HostCallback audioMasterGetTime\n index = %d, flags = %04X\n", index, flags);
+        //TRACE("PLUG> HostCallback audioMasterGetTime\n index = %d, flags = %04X\n", index, flags);
         timeInfo.sampleRate = double(kSampleRate);
         timeInfo.flags = 0;//kVstTransportPlaying | kVstPpqPosValid | kVstTempoValid | kVstBarsValid | kVstTimeSigValid;
         result = ToVstPtr<VstTimeInfo>(&timeInfo);
@@ -51,6 +50,65 @@ static VstIntPtr VSTCALLBACK HostCallback(AEffect* effect, VstInt32 opcode, VstI
     }
 
     return result;
+}
+
+struct MyDLGTEMPLATE : DLGTEMPLATE
+{
+    WORD ext[3];
+    MyDLGTEMPLATE()
+    {
+        memset(this, 0, sizeof(*this));
+    };
+};
+
+INT_PTR CALLBACK EditorProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
+{
+    AEffect* plugin = (AEffect*)lParam;
+
+    switch (msg)
+    {
+    case WM_INITDIALOG:
+        SetWindowText(hwnd, "VST Editor");
+        SetTimer(hwnd, 1, 20, 0);
+
+        if (plugin)
+        {
+            plugin->dispatcher(plugin, effEditOpen, 0, 0, hwnd, 0);
+
+            ERect* eRect = 0;
+            plugin->dispatcher(plugin, effEditGetRect, 0, 0, &eRect, 0);
+            if (eRect)
+            {
+                int width = eRect->right - eRect->left;
+                int height = eRect->bottom - eRect->top;
+                if (width < 100)
+                    width = 100;
+                if (height < 100)
+                    height = 100;
+
+                RECT wRect;
+                SetRect(&wRect, 0, 0, width, height);
+                AdjustWindowRectEx(&wRect, GetWindowLong(hwnd, GWL_STYLE), FALSE, GetWindowLong(hwnd, GWL_EXSTYLE));
+                width = wRect.right - wRect.left;
+                height = wRect.bottom - wRect.top;
+
+                SetWindowPos(hwnd, HWND_TOP, 0, 0, width, height, SWP_NOMOVE);
+            }
+        }
+        break;
+
+    case WM_TIMER:
+        if (plugin) plugin->dispatcher(plugin, effEditIdle, 0, 0, 0, 0);
+        break;
+
+    case WM_CLOSE:
+        KillTimer(hwnd, 1);
+        if (plugin) plugin->dispatcher(plugin, effEditClose, 0, 0, 0, 0);
+        EndDialog(hwnd, IDOK);
+     	break;
+    }
+
+    return 0;
 }
 
 
@@ -113,6 +171,26 @@ bool PluginManager::open()
         outputs = new float*[plugin->numOutputs];
         memset(outputs, 0, sizeof(float) * plugin->numOutputs);
     }
+
+    return true;
+}
+
+// Open the plugin's custom GUI as a MODAL dialog. This only practical for occasional peeps at the GUI,
+// because it blocks the main thread. However, the GUI is fully functional and the render thread is
+// still going, so you can use the GUI interactively while it's open.
+bool PluginManager::openCustomGui()
+{
+    if ((plugin->flags & effFlagsHasEditor) == 0)
+    {
+        TRACE("Plugin does not have an editor!\n");
+        return false;
+    }
+
+    MyDLGTEMPLATE t;
+    t.style = WS_POPUPWINDOW | WS_DLGFRAME | DS_MODALFRAME | DS_CENTER;
+    t.cx = 100;
+    t.cy = 100;
+    DialogBoxIndirectParam(GetModuleHandle(0), &t, 0, (DLGPROC)EditorProc, (LPARAM)plugin);
 
     return true;
 }
@@ -197,6 +275,20 @@ void PluginManager::setupParamLookup(ParameterMap &pmap)
     }
 }
 
+float PluginManager::getParameter(int index)
+{
+    if (module == 0 || plugin == 0) return 0.0f;
+
+    return plugin->getParameter(plugin, (VstInt32)index);
+}
+
+void PluginManager::setParameter(int index, float value)
+{
+    if (module == 0 || plugin == 0) return;
+
+    plugin->setParameter(plugin, (VstInt32)index, value);
+}
+
 void PluginManager::setProgram(int index)
 {
     if (module == 0 || plugin == 0) return;
@@ -231,20 +323,6 @@ void PluginManager::setBlockSize(int blockSize, float** buffers)
         outputs[i] = new float[blockSize];
         memset(outputs[i], 0, blockSize * sizeof(float));
     }
-}
-
-float PluginManager::getParameter(int index)
-{
-    if (module == 0 || plugin == 0) return 0.0f;
-
-    return plugin->getParameter(plugin, (VstInt32)index);
-}
-
-void PluginManager::setParameter(int index, float value)
-{
-    if (module == 0 || plugin == 0) return;
-
-    plugin->setParameter(plugin, (VstInt32)index, value);
 }
 
 void PluginManager::processMidi(MIDIMessageInfoStruct* pMidi, int nMessages)
