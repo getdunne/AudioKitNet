@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Application %28main%29</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Application %28main%29</Filter>
+    </ClInclude>
+    <ClInclude Include="DSP_Server.h">
+      <Filter>DSP Server Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="MySocketLib.h">
+      <Filter>DSP Server Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="MyDSP.h">
+      <Filter>DSP Object</Filter>
+    </ClInclude>
+    <ClInclude Include="vstsdk2.4\pluginterfaces\vst2.x\vstfxstore.h">
+      <Filter>vstsdk2.4\pluginterfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="vstsdk2.4\pluginterfaces\vst2.x\aeffectx.h">
+      <Filter>vstsdk2.4\pluginterfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="vstsdk2.4\pluginterfaces\vst2.x\aeffect.h">
+      <Filter>vstsdk2.4\pluginterfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="vstsdk2.4\public.sdk\source\vst2.x\aeffeditor.h">
+      <Filter>vstsdk2.4\public.sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="vstsdk2.4\public.sdk\source\vst2.x\audioeffect.h">
+      <Filter>vstsdk2.4\public.sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="vstsdk2.4\public.sdk\source\vst2.x\audioeffectx.h">
+      <Filter>vstsdk2.4\public.sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="PluginManager.h">
+      <Filter>DSP Object</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Application %28main%29</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Application %28main%29</Filter>
+    </ClCompile>
+    <ClCompile Include="DSP_Server.cpp">
+      <Filter>DSP Server Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="MySocketLib.cpp">
+      <Filter>DSP Server Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="MyDSP.cpp">
+      <Filter>DSP Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\NetVST\Windows\Common\WinXP_inet.cpp">
+      <Filter>DSP Server Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="vstsdk2.4\public.sdk\source\vst2.x\audioeffect.cpp">
+      <Filter>vstsdk2.4\public.sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="vstsdk2.4\public.sdk\source\vst2.x\audioeffectx.cpp">
+      <Filter>vstsdk2.4\public.sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="PluginManager.cpp">
+      <Filter>DSP Object</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="DSP Server Thread">
+      <UniqueIdentifier>{3c2ab464-b8c7-4660-9c00-dbaf543fe210}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application %28main%29">
+      <UniqueIdentifier>{a399462a-9749-4192-a01e-5323bfdbf8a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DSP Object">
+      <UniqueIdentifier>{9ceda447-47f2-429e-8d6b-8a15af166eb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vstsdk2.4">
+      <UniqueIdentifier>{b32214b8-db23-42ce-8e6a-ff1f6c46de9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vstsdk2.4\pluginterfaces">
+      <UniqueIdentifier>{32e5331d-f1e0-4d17-bb5f-b369d8df853d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vstsdk2.4\public.sdk">
+      <UniqueIdentifier>{b170c088-aff5-4e39-9d40-69872be6386c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
