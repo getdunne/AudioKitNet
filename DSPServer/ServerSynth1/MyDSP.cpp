@@ -67,18 +67,38 @@ void MyDSP::render(float** buffers, int nFrames)
 
 void MyDSP::processMidiEvent(MIDIMessageInfoStruct* event)
 {
-    unsigned noteNumber = event->data1;
-    unsigned velocity = event->data2;
+    unsigned data1 = event->data1;
+    unsigned data2 = event->data2;
+    float value;
 
     switch (event->status & 0xF0)
     {
     case 0x90:  // note on
-        if (velocity > 0) synth.playNote(noteNumber, velocity, NOTE_HZ(noteNumber));
-        else synth.stopNote(noteNumber, false);
+        if (data2 > 0) synth.playNote(data1, data2, NOTE_HZ(data1));
+        else synth.stopNote(data1, false);
         break;
 
     case 0x80:  // note off
-        synth.stopNote(noteNumber, false);
+        synth.stopNote(data1, false);
+        break;
+
+    case 0xB0:  // control change
+        switch (data1)
+        {
+        case 1: // mod wheel
+            value = data2 / 127.0;
+            TRACE("vibrato depth %f\n", value);
+            synth.vibratoDepth = 0.5f * value;
+            break;
+
+        default:
+            break;
+        }
+        break;
+
+    case 0xE0:  // pitch bend
+        value = (int((data2 << 7) | (data1 & 0x7F)) - 8192) / 8192.0f;  // range -1 .. +1
+        synth.pitchOffset = 2.0f * value;
         break;
     }
 }

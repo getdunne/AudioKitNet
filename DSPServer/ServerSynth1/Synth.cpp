@@ -13,6 +13,7 @@
 #include "wavpack.h"
 #include <iostream>
 #include <stdio.h>
+#include "TRACE.h"
 
 namespace AudioKitCore {
     
@@ -53,8 +54,9 @@ namespace AudioKitCore {
         ampEGParams.updateSampleRate((float)(sampleRate/CHUNKSIZE));
         filterEGParams.updateSampleRate((float)(sampleRate/CHUNKSIZE));
 
+        vibratoLFO.init(sampleRate / CHUNKSIZE);
         vibratoLFO.sinusoid();
-        vibratoLFO.init(sampleRate/CHUNKSIZE, 5.0f);
+        vibratoLFO.setFrequency(5.0f);
 
         voiceParams.osc1.phases = 5;
         voiceParams.osc1.freqSpread = 25.0f;
@@ -145,7 +147,7 @@ namespace AudioKitCore {
     void Synth::renderPrepCallback(void* thisPtr)
     {
         Synth& self = *((Synth*)thisPtr);
-        float pitchDev = self.pitchOffset + self.vibratoDepth * self.vibratoLFO.getSample();
+        float pitchDev = self.pitchOffset +self.vibratoDepth * self.vibratoLFO.getSample();
         self.modParams.phaseDeltaMul = powf(2.0f, pitchDev / 12.0f);
     }
     

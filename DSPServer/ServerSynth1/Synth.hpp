@@ -75,7 +75,9 @@ namespace AudioKitCore
 
         // modulation parameters
         SynthModParams modParams;
+    public:
         float pitchOffset, vibratoDepth;
+    protected:
 
         // render-prep callback
         static void renderPrepCallback(void* thisPtr);
