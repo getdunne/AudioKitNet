@@ -5,7 +5,7 @@
 //  Created by Shane Dunne, revision history on Github.
 //  Copyright © 2018 AudioKit. All rights reserved.
 //
-
+#pragma once
 #include "SynthVoice.hpp"
 #include "VoiceManager.hpp"
 #include "SustainPedalLogic.hpp"
@@ -16,7 +16,6 @@
 
 #define MAX_POLYPHONY 32
 #define MIDI_NOTENUMBERS 128    // MIDI offers 128 distinct note numbers
-#define CHUNKSIZE 16            // process samples in "chunks" this size
 
 namespace AudioKitCore
 {

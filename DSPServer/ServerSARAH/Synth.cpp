@@ -22,7 +22,7 @@ namespace AudioKitCore {
     {
         buildSetGetMaps();
 
-        modParams.masterVol = 1.0f;
+        modParams.masterVol = 0.5f;
         modParams.phaseDeltaMul = 1.0f;
 
         for (int i=0; i < MAX_POLYPHONY; i++)
@@ -46,12 +46,18 @@ namespace AudioKitCore {
         vibratoLFO.setFrequency(5.0f);
 
         voiceParams.osc1.pitchOffset = 0.0f;
-        voiceParams.osc1.mixLevel = 0.7f;
+        voiceParams.osc1.mixLevel = 0.5f;
+        voiceParams.osc1.cutoffMultiple = 1.0f;
+        voiceParams.osc1.cutoffEgStrength = 30.0f;
+        voiceParams.osc1.filterQ = 3.0f;
 
         voiceParams.osc2.pitchOffset = -12.0f;
-        voiceParams.osc2.mixLevel = 0.6f;
+        voiceParams.osc2.mixLevel = 0.4f;
+        voiceParams.osc2.cutoffMultiple = 1.0f;
+        voiceParams.osc2.cutoffEgStrength = 30.0f;
+        voiceParams.osc2.filterQ = 3.0f;
 
-        ampEGParams.setAttackTimeSeconds(0.1f);
+        ampEGParams.setAttackTimeSeconds(1.1f);
         ampEGParams.setDecayTimeSeconds(0.1f);
         ampEGParams.sustainFraction = 0.8f;
         ampEGParams.setReleaseTimeSeconds(0.5f);
@@ -59,7 +65,7 @@ namespace AudioKitCore {
         filterEGParams.setAttackTimeSeconds(2.0f);
         filterEGParams.setDecayTimeSeconds(2.0f);
         filterEGParams.sustainFraction = 0.1f;
-        filterEGParams.setReleaseTimeSeconds(2.0f);
+        filterEGParams.setReleaseTimeSeconds(1.0f);
 
         VoicePointerArray vpa;
         for (int i = 0; i < MAX_POLYPHONY; i++)

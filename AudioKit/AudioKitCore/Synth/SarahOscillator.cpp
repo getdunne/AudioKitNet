@@ -16,7 +16,8 @@ namespace AudioKitCore
         int tableLength = 1 << sizePowerOfTwo;
         FunctionTableOscillator::init(sampleRate, tableLength);
         FourierFilter::init(sizePowerOfTwo);
-        filterCutoffMultiple = float(FunctionTable::nTableSize / 2);
+        //filterCutoffMultiple = float(FunctionTable::nTableSize / 2);
+        filterCutoffMultiple = float(FunctionTable::nTableSize / 4);
         filterQ = 1.0f;
     }
 

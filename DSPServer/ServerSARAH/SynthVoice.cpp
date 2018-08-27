@@ -8,6 +8,7 @@
 
 #include "SynthVoice.hpp"
 #include <stdio.h>
+#include "TRACE.h"
 
 namespace AudioKitCore
 {
@@ -115,9 +116,11 @@ namespace AudioKitCore
         else
             tempGain = pMod->masterVol * noteVol * ampEG.getSample();
 
-        float cutoffMul = pParams->osc1.cutoffMultiple + pParams->osc1.cutoffEgStrength * filterEG.getSample();
-        osc1.setCutoffMultipleAndQ(cutoffMul, pParams->osc1.filterQ);
-        osc2.setCutoffMultipleAndQ(cutoffMul, pParams->osc2.filterQ);
+        float feg = filterEG.getSample();
+        osc1.setCutoffMultipleAndQ(pParams->osc1.cutoffMultiple + pParams->osc1.cutoffEgStrength * feg,
+                                   pParams->osc1.filterQ);
+        osc2.setCutoffMultipleAndQ(pParams->osc2.cutoffMultiple + pParams->osc2.cutoffEgStrength * feg,
+                                   pParams->osc2.filterQ);
 
         return false;
     }
@@ -132,6 +135,8 @@ namespace AudioKitCore
             float rightSample = 0.0f;
             osc1.getSamples(&leftSample, &rightSample, tempGain * pParams->osc1.mixLevel);
             osc2.getSamples(&leftSample, &rightSample, tempGain * pParams->osc2.mixLevel);
+            *pOutLeft++ += leftSample;
+            *pOutRight++ += rightSample;
         }
         return false;
     }
