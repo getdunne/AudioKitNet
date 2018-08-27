@@ -29,6 +29,8 @@ namespace AudioKitCore
 
     double BiquadFilterModel::gainAtNormalizedFrequency(double normalizedFrequency)
     {
+        if (normalizedFrequency == 0.0) return 0.0;
+
         double w = 2 * doublePi * normalizedFrequency;
         complex_t czn1 = std::polar(1., -w);
         complex_t czn2 = std::polar(1., -2 * w);

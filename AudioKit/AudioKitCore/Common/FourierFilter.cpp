@@ -50,7 +50,7 @@ namespace AudioKitCore
         {
             float gain = float(scaleFactor * gainAtNormalizedFrequency((double)h / fftLength));
             scaledSpectrum[h].r = spectrum[h].r * gain;
-            scaledSpectrum[h].i = spectrum[h].r * gain;
+            scaledSpectrum[h].i = spectrum[h].i * gain;
         }
 
         // perform inverse FFT to get filtered waveform
