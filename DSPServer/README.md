@@ -19,7 +19,7 @@ This program will probably be Windows-only for the foreseeable future, but I sup
 Lots of work-in-progress here to extend the original NetVST concept to support web-based remote GUIs.
 
 ## ServerSARAH
-The goal is to create a version of my [SARAH](https://github.com/getdunne/SARAH) frequency-domain synthsizer for use on a server.
+The goal is to create a platform-independent version of my [SARAH](https://github.com/getdunne/SARAH) Fourier transform-based synthesizer.
 
-This code is barely started, and is not working yet.
+The basic synthesizer is working now, but this remains a work in progress. There is a partial web GUI for this synth in the [WebGUI](http://../WebGUI) folder.
 
