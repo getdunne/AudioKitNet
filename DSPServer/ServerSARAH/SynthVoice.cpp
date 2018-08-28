@@ -10,18 +10,20 @@
 #include <stdio.h>
 #include "TRACE.h"
 
+#define FFT_BITS 9
+
 namespace AudioKitCore
 {
     void SynthVoice::init(double sampleRate, SynthVoiceParams *pTimbreParameters, SynthModParams* pModParameters)
     {
         VoiceBase::init(sampleRate, pTimbreParameters, pModParameters);
 
-        osc1.init(11, sampleRate);
+        osc1.init(FFT_BITS, sampleRate);
         osc1.sawtooth();
         osc1.prepare();
         osc1.setQ(pTimbreParameters->osc1.filterQ);
 
-        osc2.init(11, sampleRate);
+        osc2.init(FFT_BITS, sampleRate);
         osc2.sawtooth();
         osc2.prepare();
         osc2.setQ(pTimbreParameters->osc2.filterQ);
