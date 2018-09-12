@@ -1,17 +1,54 @@
 @import 'normalize-scss/sass/normalize/import-now';
+@import 'precision-inputs/css/precision-inputs.fl-controls';
+
+@import url('https://fonts.googleapis.com/css?family=Oswald:200,400');
 
 * {
     user-select: none;
 }
 
 body {
-    font-family: sans-serif;
-    background-color: lightGray;
+    color: #ffffff;
+    font-family: 'Oswald', sans-serif;
+    background-color: #21272b;
 }
 
-.controls {
-    border: 1px solid black;
-    background-color: darkGray;
-    margin-top: 10px;
-    padding-left: 20px;
+h1 {
+    padding: 20px 25px 35px;
+    margin: 0;
+    font-size: 36px;
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+
+.connect-button {
+    margin: 10px 25px;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+
+    padding: 15px 25px;
+    margin: 10px 20px;
+
+    background-color: #363c40;
+    border: 2px solid #272d31;
+}
+
+h2 {
+    flex: 0 0 200px;
+    margin: 0 0 10px;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.control-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.knob-control {
+    flex: 0 0 100px;
 }

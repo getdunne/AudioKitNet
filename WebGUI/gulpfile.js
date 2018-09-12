@@ -97,6 +97,7 @@ gulp.task('styles', function() {
 
 gulp.task('scripts', function() {
   var files = [
+    'node_modules/precision-inputs/scripts/precision-inputs.fl-controls.js',
     config.jsSrcDir + '/**/*.js'
   ];
 

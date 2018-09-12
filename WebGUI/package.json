@@ -20,6 +20,7 @@
     "run-sequence": "^2.2.1"
   },
   "dependencies": {
-    "normalize-scss": "^7.0.1"
+    "normalize-scss": "^7.0.1",
+    "precision-inputs": "^0.2.5"
   }
 }
