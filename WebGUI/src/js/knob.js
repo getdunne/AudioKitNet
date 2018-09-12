@@ -85,8 +85,8 @@ function addKnob(id, controlKey, knobColor, labelText, minValue, maxValue, initV
             caption.textContent = value.toFixed(2);
         }
         dial.setAttribute("transform", "translate(35, 35) rotate(" + String(angle) + " 0 0) translate(-35, -35)")
-        if (typeof updateValueCallback === 'function') {
-            updateValueCallback(value);
+        if (typeof sendValueUpdate === 'function') {
+            sendValueUpdate(controlKey, value);
         }
     }
 

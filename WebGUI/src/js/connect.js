@@ -1,31 +1,27 @@
 // setup websocket with callbacks
 var ws;
 
-function doStop()
-{
+function doStop() {
     ws.send('stop\n');
 }
 
-function doStart()
-{
-    ws = new WebSocket(`ws://${location.host}`);
+function doStart() {
+    ws = new WebSocket('ws://' + location.host);
 
-    ws.onopen z= function() {
+    ws.onopen = function() {
         console.log('CONNECT');
         for (var name in knobDict) ws.send(name + '=?\n');
         return false;
-        };
+    };
 
-    ws.onclose = function()
-    {
+    ws.onclose = function() {
         console.log('DISCONNECT:' + event.code);
         document.getElementById("connectBtn").innerHTML = "Connect";
         ws = null;
         return true;
     };
 
-    ws.onmessage = function(event)
-    {
+    ws.onmessage = function(event) {
         var parts = event.data.split('=');
         if (knobDict.hasOwnProperty(parts[0]))
         {
@@ -38,15 +34,13 @@ function doStart()
     document.getElementById("connectBtn").innerHTML = "Disconnect";
 }
 
-function sendValueUpdate(controlKey, controlValue)
-{
-    var msg = `${controlKey}=${controlValue}`;
+function sendValueUpdate(controlKey, controlValue) {
+    var msg = '' + controlKey + '=' + controlValue;
     //console.log("Send: " + msg);
     if (ws) ws.send(msg + '\n');
-};
+}
 
-function doConnect()
-{
+function doConnect() {
     if (!ws) doStart();
     else doStop();
 }

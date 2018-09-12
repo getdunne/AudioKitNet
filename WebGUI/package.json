@@ -18,5 +18,8 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.1",
     "run-sequence": "^2.2.1"
+  },
+  "dependencies": {
+    "normalize-scss": "^7.0.1"
   }
 }

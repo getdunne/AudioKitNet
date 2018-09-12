@@ -83,7 +83,8 @@ gulp.task('styles', function() {
   var files = config.cssSrcDir + '/**/*.scss';
 
   var sassOptions = {
-    outputStyle: (env === 'dev') ? 'nested' : 'compressed'
+    outputStyle: (env === 'dev') ? 'nested' : 'compressed',
+    includePaths: ['node_modules']
   };
 
   return gulp.src(files)
