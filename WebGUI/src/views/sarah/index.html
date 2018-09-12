@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sarah Synth Controls</title>
+  <link rel="stylesheet" type="text/css" href="../main.css">
+</head>
+<body>
+  <h1>Synthesizer Web GUI</h1>
+  <p>
+    <button id="connectBtn" onClick="doConnect()">Connect</button>
+  </p>
+  <div id="sarah-controls">
+    <div class="controls">
+      <h2>Oscillator 1</h2>
+      <svg id="sarah-osc1PitchOffset" />
+    </div>
+    <div class="controls">
+      <h2>Oscillator 2</h2>
+      <svg id="sarah-osc2PitchOffset" />
+    </div>
+    <div class="controls">
+      <h2>Amplitude</h2>
+      <svg id="sarah-ampAttack" />
+      <svg id="sarah-ampDecay" />
+      <svg id="sarah-ampSustain" />
+      <svg id="sarah-ampRelease" />
+    </div>
+    <div class="controls">
+      <h2>Filter</h2>
+      <svg id="sarah-fltAttack" />
+      <svg id="sarah-fltDecay" />
+      <svg id="sarah-fltSustain" />
+      <svg id="sarah-fltRelease" />
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <svg id="sarah-fltEgStrength" />
+      <svg id="sarah-fltCutoff" />
+      <svg id="sarah-fltResonance" />
+    </div>
+    <div class="controls">
+      <h2>Mixer</h2>
+      <svg id="sarah-osc1MixLevel" />
+      <svg id="sarah-osc2MixLevel" />
+      <svg id="sarah-masterVol" />
+    </div>
+  </div>
+  <script src="../main.js"></script>
+</body>
+</html>

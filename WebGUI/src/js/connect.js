@@ -8,9 +8,9 @@ function doStop()
 
 function doStart()
 {
-    ws = new WebSocket('ws://' + location.host);
-    
-    ws.onopen = function() {
+    ws = new WebSocket(`ws://${location.host}`);
+
+    ws.onopen z= function() {
         console.log('CONNECT');
         for (var name in knobDict) ws.send(name + '=?\n');
         return false;
@@ -34,19 +34,19 @@ function doStart()
         else console.log('Message: ' + event.data);
         return false;
     };
-    
+
     document.getElementById("connectBtn").innerHTML = "Disconnect";
 }
 
-function sendValueUpdate(id, newValue)
+function sendValueUpdate(controlKey, controlValue)
 {
-    var msg = id + "=" + String(newValue);
+    var msg = `${controlKey}=${controlValue}`;
     //console.log("Send: " + msg);
-    if (ws != null) ws.send(msg + "\n");
+    if (ws) ws.send(msg + '\n');
 };
 
 function doConnect()
 {
-    if (ws == null) doStart();
+    if (!ws) doStart();
     else doStop();
 }

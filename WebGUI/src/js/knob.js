@@ -33,7 +33,7 @@ function makeCaption(labelText) {
     return textObj;
 }
 
-function makeKnob(id, knobColor, labelText, minValue, maxValue, initValue, taper, valueSetFunction) {
+function addKnob(id, controlKey, knobColor, labelText, minValue, maxValue, initValue, taper) {
     var svg = document.getElementById(id);
     svg.setAttribute("width", "70");
     svg.setAttribute("height", "100");
@@ -41,19 +41,19 @@ function makeKnob(id, knobColor, labelText, minValue, maxValue, initValue, taper
     var caption = makeCaption(labelText);
     svg.appendChild(dial);
     svg.appendChild(caption);
-    
+
     var label = labelText;
     var min = minValue;
     var max = maxValue;
     var power = taper;
     var value = initValue;
     setValue(initValue);
-    
+
     var fraction = (value - min) / (max - min)
     if (power != 0) fraction = Math.pow(fraction, 1.0/power);
     var rotAngle = -160 + 320 * fraction;
     dial.setAttribute("transform", "translate(35, 35) rotate(" + String(rotAngle) + " 0 0) translate(-35, -35)")
-    
+
     dial.addEventListener('mousedown', click, {passive: true});
     dial.addEventListener('mouseover', hover, {passive: true});
     dial.addEventListener('mouseleave', leave, {passive: true});
@@ -67,9 +67,9 @@ function makeKnob(id, knobColor, labelText, minValue, maxValue, initValue, taper
     var sx = null;
     var sy = null;
     var tempAngle = rotAngle;
-    
-    knobDict[id] = setValue;
-    
+
+    knobDict[controlKey] = setValue;
+
     function setValueFromAngle(angle) {
         if (angle < -160) angle = -160;
         if (angle > 160) angle = 160;
@@ -85,12 +85,11 @@ function makeKnob(id, knobColor, labelText, minValue, maxValue, initValue, taper
             caption.textContent = value.toFixed(2);
         }
         dial.setAttribute("transform", "translate(35, 35) rotate(" + String(angle) + " 0 0) translate(-35, -35)")
-        if (valueSetFunction != null)
-        {
-            valueSetFunction(id, value);
+        if (typeof updateValueCallback === 'function') {
+            updateValueCallback(value);
         }
     }
-    
+
     function setValue(newValue)
     {
         value = newValue;
@@ -104,19 +103,19 @@ function makeKnob(id, knobColor, labelText, minValue, maxValue, initValue, taper
     {
         caption.textContent = value.toFixed(power == 0 ? 0 : 2);
     }
-    
+
     function leave(evt)
     {
         if (evt.buttons == 0) caption.textContent = labelText;
     }
-    
+
     function click(evt)
     {
         sx = evt.screenX;
         sy = evt.screenY;
         caption.textContent = value.toFixed(power == 0 ? 0 : 2);
     }
-    
+
     function drag(evt)
     {
         evt.preventDefault();
@@ -128,7 +127,7 @@ function makeKnob(id, knobColor, labelText, minValue, maxValue, initValue, taper
             setValueFromAngle(tempAngle);
         }
     }
-    
+
     function release(evt)
     {
         sx = null;
@@ -136,7 +135,7 @@ function makeKnob(id, knobColor, labelText, minValue, maxValue, initValue, taper
         caption.textContent = labelText;
         rotAngle = tempAngle;
     }
-    
+
     function touchDown(evt)
     {
         evt.preventDefault();
@@ -144,7 +143,7 @@ function makeKnob(id, knobColor, labelText, minValue, maxValue, initValue, taper
         sy = evt.touches.item(0).screenY;
         caption.textContent = value.toFixed(power == 0 ? 0 : 2);
     }
-    
+
     function touchDrag(evt)
     {
         evt.preventDefault();
@@ -156,7 +155,7 @@ function makeKnob(id, knobColor, labelText, minValue, maxValue, initValue, taper
             setValueFromAngle(tempAngle);
         }
     }
-    
+
     function touchUp(evt)
     {
         evt.preventDefault();

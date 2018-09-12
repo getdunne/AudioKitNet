@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Synth1 Controls</title>
+  <link rel="stylesheet" type="text/css" href="../main.css">
+</head>
+<body>
+  <h1>Synthesizer Web GUI</h1>
+  <p>
+    <button id="connectBtn" onClick="doConnect()">Connect</button>
+  </p>
+  <div id="synth1-controls">
+    <div class="controls">
+      <h2>Oscillator 1</h2>
+      <svg id="synth1-osc1Phases" />
+      <svg id="synth1-osc1FreqSpread" />
+      <svg id="synth1-osc1PanSpread" />
+      <svg id="synth1-osc1PitchOffset" />
+    </div>
+    <div class="controls">
+      <h2>Oscillator 2</h2>
+      <svg id="synth1-osc2Phases" />
+      <svg id="synth1-osc2FreqSpread" />
+      <svg id="synth1-osc2PanSpread" />
+      <svg id="synth1-osc2PitchOffset" />
+    </div>
+    <div class="controls">
+      <h2>Amplitude</h2>
+      <svg id="synth1-ampAttack" />
+      <svg id="synth1-ampDecay" />
+      <svg id="synth1-ampSustain" />
+      <svg id="synth1-ampRelease" />
+    </div>
+    <div class="controls">
+      <h2>Filter</h2>
+      <svg id="synth1-fltAttack" />
+      <svg id="synth1-fltDecay" />
+      <svg id="synth1-fltSustain" />
+      <svg id="synth1-fltRelease" />
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <svg id="synth1-fltEgStrength" />
+      <svg id="synth1-fltCutoff" />
+      <svg id="synth1-fltResonance" />
+      <svg id="synth1-fltStages" />
+    </div>
+    <div class="controls">
+      <h2>Mixer</h2>
+      <svg id="synth1-osc1MixLevel" />
+      <svg id="synth1-osc2MixLevel" />
+      <svg id="synth1-smp1MixLevel" />
+      <svg id="synth1-smp2MixLevel" />
+      <svg id="synth1-masterVol" />
+    </div>
+  </div>
+  <script src="../main.js"></script>
+</body>
+</html>
