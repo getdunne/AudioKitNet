@@ -5,42 +5,49 @@
   <link rel="stylesheet" type="text/css" href="../main.css">
 </head>
 <body>
-  <h1>Synthesizer Web GUI</h1>
-  <p>
-    <button id="connectBtn" onClick="doConnect()">Connect</button>
-  </p>
+  <h1>Sarah Synthesizer Web GUI</h1>
+  <button class="connect-button" id="connectBtn" onClick="doConnect()">Connect</button>
   <div id="sarah-controls">
-    <div class="controls">
-      <h2>Oscillator 1</h2>
-      <svg id="sarah-osc1PitchOffset" />
+    <div class="control-group">
+      <h2>Pitch Offset</h2>
+      <div class="control-wrapper">
+        <div class="knob-container" id="sarah-osc1-tune"></div>
+        <div class="knob-container" id="sarah-osc2-tune"></div>
+      </div>
     </div>
-    <div class="controls">
-      <h2>Oscillator 2</h2>
-      <svg id="sarah-osc2PitchOffset" />
+    <div class="control-group">
+      <h2>Amplitude Envelope</h2>
+      <div class="control-wrapper">
+        <div class="knob-container" id="sarah-amp-attack"></div>
+        <div class="knob-container" id="sarah-amp-decay"></div>
+        <div class="knob-container" id="sarah-amp-sustain"></div>
+        <div class="knob-container" id="sarah-amp-release"></div>
+      </div>
     </div>
-    <div class="controls">
-      <h2>Amplitude</h2>
-      <svg id="sarah-ampAttack" />
-      <svg id="sarah-ampDecay" />
-      <svg id="sarah-ampSustain" />
-      <svg id="sarah-ampRelease" />
-    </div>
-    <div class="controls">
+    <div class="control-group">
       <h2>Filter</h2>
-      <svg id="sarah-fltAttack" />
-      <svg id="sarah-fltDecay" />
-      <svg id="sarah-fltSustain" />
-      <svg id="sarah-fltRelease" />
-      &nbsp;&nbsp;&nbsp;&nbsp;
-      <svg id="sarah-fltEgStrength" />
-      <svg id="sarah-fltCutoff" />
-      <svg id="sarah-fltResonance" />
+      <div class="control-wrapper">
+        <div class="knob-container" id="sarah-flt-amount"></div>
+        <div class="knob-container" id="sarah-flt-cut"></div>
+        <div class="knob-container" id="sarah-flt-res"></div>
+      </div>
     </div>
-    <div class="controls">
+    <div class="control-group">
+      <h2>Filter Envelope</h2>
+      <div class="control-wrapper">
+        <div class="knob-container" id="sarah-flt-attack"></div>
+        <div class="knob-container" id="sarah-flt-decay"></div>
+        <div class="knob-container" id="sarah-flt-sustain"></div>
+        <div class="knob-container" id="sarah-flt-release"></div>
+      </div>
+    </div>
+    <div class="control-group">
       <h2>Mixer</h2>
-      <svg id="sarah-osc1MixLevel" />
-      <svg id="sarah-osc2MixLevel" />
-      <svg id="sarah-masterVol" />
+      <div class="control-wrapper">
+        <div class="knob-container" id="sarah-mix-osc1"></div>
+        <div class="knob-container" id="sarah-mix-osc2"></div>
+        <div class="knob-container" id="sarah-mix-master"></div>
+      </div>
     </div>
   </div>
   <script src="../main.js"></script>

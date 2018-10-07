@@ -26,18 +26,11 @@ h1 {
 }
 
 .control-group {
-    display: flex;
-    align-items: center;
-
-    padding: 15px 25px;
+    float: left;
     margin: 10px 20px;
-
-    background-color: #363c40;
-    border: 2px solid #272d31;
 }
 
 h2 {
-    flex: 0 0 200px;
     margin: 0 0 10px;
     font-size: 24px;
     font-weight: 400;
@@ -45,10 +38,47 @@ h2 {
 }
 
 .control-wrapper {
-    display: flex;
     flex-flow: row wrap;
+
+    display: flex;
+    padding: 15px 25px;
+
+    background-color: #363c40;
+    border: 2px solid #272d31;
 }
 
+.knob-container {
+    margin: 0 5px;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+$knobSize: 100px;
 .knob-control {
-    flex: 0 0 100px;
+    flex: 0 0 $knobSize;
+    width: $knobSize;
+    height: $knobSize;
+}
+
+.knob-label, .knob-value {
+  flex: 0 0 auto;
+  display: inline-block;
+  padding: 10px 0;
+  width: $knobSize;
+  color: #c1c5c5;
+  font-family: 'Helvetica', sans-serif;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.knob-label {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.knob-value {
+  font-size: 12px;
+  background: #23292d;
+  border-radius: 2em;
 }
