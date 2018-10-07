@@ -23,7 +23,7 @@
     <ProjectGuid>{CEFAFBFA-B8DA-42DE-86AD-35B9F0C32C20}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>ServerVST</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
