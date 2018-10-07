@@ -1,0 +1,84 @@
+@import 'normalize-scss/sass/normalize/import-now';
+@import 'precision-inputs/css/precision-inputs.fl-controls';
+
+@import url('https://fonts.googleapis.com/css?family=Oswald:200,400');
+
+* {
+    user-select: none;
+}
+
+body {
+    color: #ffffff;
+    font-family: 'Oswald', sans-serif;
+    background-color: #21272b;
+}
+
+h1 {
+    padding: 20px 25px 35px;
+    margin: 0;
+    font-size: 36px;
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+
+.connect-button {
+    margin: 10px 25px;
+}
+
+.control-group {
+    float: left;
+    margin: 10px 20px;
+}
+
+h2 {
+    margin: 0 0 10px;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.control-wrapper {
+    flex-flow: row wrap;
+
+    display: flex;
+    padding: 15px 25px;
+
+    background-color: #363c40;
+    border: 2px solid #272d31;
+}
+
+.knob-container {
+    margin: 0 5px;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+$knobSize: 100px;
+.knob-control {
+    flex: 0 0 $knobSize;
+    width: $knobSize;
+    height: $knobSize;
+}
+
+.knob-label, .knob-value {
+  flex: 0 0 auto;
+  display: inline-block;
+  padding: 10px 0;
+  width: $knobSize;
+  color: #c1c5c5;
+  font-family: 'Helvetica', sans-serif;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.knob-label {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.knob-value {
+  font-size: 12px;
+  background: #23292d;
+  border-radius: 2em;
+}

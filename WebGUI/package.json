@@ -1,0 +1,26 @@
+{
+  "name": "audiokitnet-webgui",
+  "version": "1.0.0",
+  "description": "Web GUI for the DSPServer of the AudioKitNet project",
+  "main": "gulpfile.js",
+  "scripts": {
+    "build": "./node_modules/.bin/gulp deploy"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-if": "^2.0.2",
+    "gulp-newer": "^1.4.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.1",
+    "run-sequence": "^2.2.1"
+  },
+  "dependencies": {
+    "normalize-scss": "^7.0.1",
+    "precision-inputs": "^0.2.5"
+  }
+}
