@@ -8,6 +8,7 @@ static const char* pluginDllPath = "C:\\VST_OLD\\Phadiz(P)\\Phadiz(P).dll";
 //static const char* pluginDllPath = "C:\\VST\\OBXd\\obxd14windows\\Obxd.dll";
 //static const char* pluginDllPath = "C:\\Program Files (x86)\\Vstplugins\\Phasewave\\PHASEW-V1-22.dll";
 //static const char* pluginDllPath = "C:\\VST\\Tranzistow\\Tranzistow32.dll";
+//static const char* pluginDllPath = "C:\\VST\\GyL Constructor 32+64\\Constructor 32 bit\\Constructor.dll";
 
 MyDSP::MyDSP()
     : nMidiMsgs(0)
@@ -78,8 +79,9 @@ void MyDSP::render(float** buffers, int nFrames)
         pPm++;
         nParamMsgs--;
     }
+
     // process MIDI events
-    plugin.processMidi(midiData, nMidiMsgs);
+    plugin.processMidi(midiData, nMidiMsgs, nFrames);
     nMidiMsgs = 0;
 
     // render sound

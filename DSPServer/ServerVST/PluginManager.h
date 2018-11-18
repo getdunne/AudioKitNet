@@ -63,7 +63,7 @@ public:
     float getParameter(int index);
     void setParameter(int index, float value);
 
-    void processMidi(MIDIMessageInfoStruct* pMidi, int nMessages);
+    void processMidi(MIDIMessageInfoStruct* pMidi, int nMessages, int nFrames);
 
     void resume();
     void processBlock();

@@ -334,7 +334,7 @@ void PluginManager::setBlockSize(int blockSize, float** buffers)
     }
 }
 
-void PluginManager::processMidi(MIDIMessageInfoStruct* pMidi, int nMessages)
+void PluginManager::processMidi(MIDIMessageInfoStruct* pMidi, int nMessages, int nFrames)
 {
     if (module == 0 || plugin == 0) return;
 
@@ -347,13 +347,12 @@ void PluginManager::processMidi(MIDIMessageInfoStruct* pMidi, int nMessages)
         memset(ev, 0, sizeof(VstMidiEvent));
         ev->type = kVstMidiType;
         ev->byteSize = sizeof(VstMidiEvent);
-        ev->deltaFrames = pMidi->startFrame;
+        ev->deltaFrames = pMidi->startFrame % nFrames;
         ev->midiData[0] = pMidi->channel | pMidi->status;
         ev->midiData[1] = pMidi->data1;
         ev->midiData[2] = pMidi->data2;
         vstEvents.events[i] = (VstEvent*)ev;
     }
-
     plugin->dispatcher(plugin, effProcessEvents, 0, 0, &vstEvents, 0.0f);
 }
 
