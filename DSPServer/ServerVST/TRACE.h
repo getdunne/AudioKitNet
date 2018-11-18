@@ -31,10 +31,16 @@ inline void TRACE(const char* format,...)
                 &strrchr(__FILE__,'\\')[1],__LINE__); \
                 _RPT0(_CRT_WARN,szBuffer); \
                 TRACE
+
+#pragma warning(pop)
+
+#else
+#if 1
+// print to terminal in release mode
+#define TRACE printf
 #else
 // Remove for release mode
 #define TRACE  ((void)__noop)
 #define TRACEF ((void)__noop)
 #endif
-
-#pragma warning(pop)
+#endif
