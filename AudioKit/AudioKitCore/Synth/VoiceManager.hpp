@@ -11,7 +11,7 @@
 #include <vector>
 
 #define MIDI_NOTENUMBERS 128    // MIDI offers 128 distinct note numbers
-#define CHUNKSIZE 32            // process samples in "chunks" this size
+#define CHUNKSIZE 16            // process samples in "chunks" this size
 
 namespace AudioKitCore
 {
