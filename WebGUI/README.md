@@ -48,7 +48,7 @@ Run any suitable version of the **NetSynth plug-in** ([download from here](http:
 
 Adjust the knobs in the web GUI, and you should hear the corresponding sound changes.
 
-![](../docs/web-gui-2.png)
+![](../docs/web-gui.png)
 
 ## Plans for the web-GUI code
 
