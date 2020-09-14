@@ -1,5 +1,11 @@
 # AudioKitNet
 
+This work was previously part of [AudioKit](https://github.com/AudioKit/AudioKit), and is related to my earlier [NetVST Project](http://netvst.org/wiki).
+It is **not really in a working state anymore**; please be warned. I hope to get back to this soon, but I'm pretty busy with other things, e.g.
+[Unify](https://www.pluginguru.com/products/unify-standard).
+
+------
+
 ## (Nearly) Instant gratification
 There are a few steps to go through before you can play with this code. Go to the **WebGUI** folder and read the [README](WebGUI/README.md) there.
 
