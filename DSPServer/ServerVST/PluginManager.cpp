@@ -1,11 +1,10 @@
 #include "PluginManager.h"
 #include <Windows.h>
 #include "TRACE.h"
+#include "Protocol.h"
 
-static const VstInt32 kBlockSize = 512;
-static const float kSampleRate = 44100.0f;
-
-
+//static const VstInt32 kBlockSize = 512;
+static float curSampleRate = 44100.0f;
 static VstTimeInfo timeInfo;
 
 static VstIntPtr VSTCALLBACK HostCallback(AEffect* effect, VstInt32 opcode, VstInt32 index, VstIntPtr value, void* ptr, float opt)
@@ -42,13 +41,13 @@ static VstIntPtr VSTCALLBACK HostCallback(AEffect* effect, VstInt32 opcode, VstI
     case audioMasterGetTime:
         flags = (VstInt32)value;
         //TRACE("PLUG> HostCallback audioMasterGetTime\n index = %d, flags = %04X\n", index, flags);
-        timeInfo.sampleRate = double(kSampleRate);
+        timeInfo.sampleRate = double(curSampleRate);
         timeInfo.flags = kVstTempoValid;//kVstTransportPlaying | kVstPpqPosValid | kVstTempoValid | kVstBarsValid | kVstTimeSigValid;
         result = ToVstPtr<VstTimeInfo>(&timeInfo);
         break;
 
     case audioMasterAutomate:
-        TRACE("Set param %d to value %f\n", index, opt);
+        //TRACE("Set param %d to value %f\n", index, opt);
         break;
     }
 
@@ -122,6 +121,13 @@ PluginManager::PluginManager()
     timeInfo.tempo = 120.0;
 }
 
+void PluginManager::setSampleRate(float sampleRateHz)
+{
+    curSampleRate = sampleRateHz;
+    if (module)
+        plugin->dispatcher(plugin, effSetSampleRate, 0, 0, 0, curSampleRate);
+}
+
 void PluginManager::setTempo(double bpm)
 {
     timeInfo.tempo = bpm;
@@ -167,7 +173,7 @@ bool PluginManager::open()
 
     // preliminary setup
     plugin->dispatcher(plugin, effOpen, 0, 0, 0, 0);
-    plugin->dispatcher(plugin, effSetSampleRate, 0, 0, 0, kSampleRate);
+    plugin->dispatcher(plugin, effSetSampleRate, 0, 0, 0, curSampleRate);
 
     // allocate inputs, outputs pointer arrays, but make the actual pointers null
     if (plugin->numInputs > 0)
@@ -202,6 +208,13 @@ bool PluginManager::openCustomGui()
     DialogBoxIndirectParam(GetModuleHandle(0), &t, 0, (DLGPROC)EditorProc, (LPARAM)plugin);
 
     return true;
+}
+
+void PluginManager::updateGui()
+{
+    if (module == 0 || plugin == 0) return;
+
+    plugin->dispatcher(plugin, effEditIdle, 0, 0, 0, 0.0f);
 }
 
 void PluginManager::checkProperties()
@@ -384,3 +397,13 @@ void PluginManager::close()
     plugin->dispatcher(plugin, effClose, 0, 0, 0, 0);
 }
 
+void PluginManager::unload()
+{
+    if (FreeLibrary((HMODULE)module))
+    {
+        TRACE("Plugin unloaded\n");
+        module = nullptr;
+    }
+    else
+        TRACE("FreeLibrary failed, error code %d\n", GetLastError());
+}

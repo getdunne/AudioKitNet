@@ -2,7 +2,10 @@
 #include "TRACE.h"
 #include <string.h>
 #include <windows.h>
+#define _USE_MATH_DEFINES
+#include <math.h>
 
+//static const char* pluginDllPath = "D:\\VST32\\GenesisPro\\GenesisPro.dll";
 static const char* pluginDllPath = "C:\\VST_OLD\\Phadiz(P)\\Phadiz(P).dll";
 //static const char* pluginDllPath = "C:\\VstPlugins\\Synth1\\Synth1 VST.dll";
 //static const char* pluginDllPath = "C:\\VST\\OBXd\\obxd14windows\\Obxd.dll";
@@ -14,27 +17,17 @@ MyDSP::MyDSP()
     : nMidiMsgs(0)
     , nParamMsgs(0)
 {
-    TRACE("Preparing to load plugin %s\n", pluginDllPath);
-
     if (!plugin.load(pluginDllPath))
-    {
         TRACE("Error loading plugin %s\n", pluginDllPath);
-        return;
-    }
-
-    if (!plugin.open())
-    {
+    else if (!plugin.open())
         TRACE("Unable to open plugin %s\n", pluginDllPath);
-        return;
+    else
+    {
+        TRACE("Plugin loaded and opened\n");
+        //plugin.checkProperties();
+        //plugin.setupParamLookup(pmap);
+        plugin.resume();
     }
-
-    TRACE("Plugin loaded and opened\n");
-
-    // testing only
-    //plugin.checkProperties();
-    //plugin.setupParamLookup(pmap);
-
-    plugin.resume();
 }
 
 MyDSP::~MyDSP()
@@ -63,6 +56,11 @@ void MyDSP::acceptParamChanges(ParamMessageStruct* pMsgs, int nMessages)
     pPm = paramData;
 }
 
+void MyDSP::setSampleRate(float sampleRateHz)
+{
+    plugin.setSampleRate(sampleRateHz);
+}
+
 void MyDSP::render(float** buffers, int nFrames)
 {
     // clear output buffers
@@ -86,6 +84,15 @@ void MyDSP::render(float** buffers, int nFrames)
 
     // render sound
     plugin.processBlock();
+}
+
+void MyDSP::idle()
+{
+    //static int count = 0;
+    //TRACE("idle %d\n", count++);
+
+    // update GUI
+    plugin.updateGui();
 }
 
 void MyDSP::appendMidiProgramChange(int progNumber)
@@ -115,16 +122,49 @@ void MyDSP::appendMidiBankSelect(int bankNumber)
 }
 
 #define HAS_PREFIX(string, prefix) (strncmp(string, prefix, strlen(prefix)) == 0)
-#define USE_MIDI_PROG_CHANGE
+//#define USE_MIDI_PROG_CHANGE
 
 bool MyDSP::command(char* cmd)
 {
-    if (HAS_PREFIX(cmd, "edit"))
+    if (HAS_PREFIX(cmd, "load="))
+    {
+        char* pluginDllPath = cmd + 5;
+        TRACE("Preparing to load plugin %s\n", pluginDllPath);
+
+        if (!plugin.load(pluginDllPath))
+        {
+            TRACE("Error loading plugin %s\n", pluginDllPath);
+            return false;
+        }
+
+        if (!plugin.open())
+        {
+            TRACE("Unable to open plugin %s\n", pluginDllPath);
+            return false;
+        }
+
+        TRACE("Plugin loaded and opened\n");
+
+        // testing only
+        //plugin.checkProperties();
+        //plugin.setupParamLookup(pmap);
+
+        plugin.resume();
+        return false;
+    }
+    else if (HAS_PREFIX(cmd, "unload"))
+    {
+        plugin.suspend();
+        plugin.close();
+        plugin.unload();
+        return false;
+    }
+    else if (HAS_PREFIX(cmd, "edit"))
     {
         plugin.openCustomGui();
         return false;
     }
-    if (HAS_PREFIX(cmd, "prog="))
+    else if (HAS_PREFIX(cmd, "prog="))
     {
 #ifdef USE_MIDI_PROG_CHANGE
         appendMidiProgramChange(atoi(cmd + 5));

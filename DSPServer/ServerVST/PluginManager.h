@@ -1,29 +1,13 @@
 #pragma once
 #include "pluginterfaces/vst2.x/aeffectx.h"
 #include <stdint.h>
+#include <string>
 #include <map>
 typedef std::map<std::string, int> ParameterMap;
 
-// Moved these here from MyDSP.h
-// eventually they need a header file of their own
-typedef struct
-{
-    uint8_t     status;
-    uint8_t     channel;
-    uint8_t     data1;
-    uint8_t     data2;
-    uint32_t    startFrame;
-} MIDIMessageInfoStruct;
-
-typedef struct
-{
-    uint16_t    effectIndex;
-    uint16_t    paramIndex;
-    float       paramValue;
-} ParamMessageStruct;
-
-
 typedef AEffect* (*PluginEntryProc) (audioMasterCallback audioMaster);
+
+struct MIDIMessageInfoStruct;
 
 class PluginManager
 {
@@ -47,12 +31,14 @@ public:
     PluginManager();
     ~PluginManager();
 
+    void setSampleRate(float sampleRateHz);
     void setTempo(double bpm);
 
     bool load(const char* pathToPluginDll);
     bool open();
 
     bool openCustomGui();
+    void updateGui();
 
     void checkProperties();
     void setupParamLookup(ParameterMap &pmap);
@@ -70,4 +56,5 @@ public:
     void suspend();
 
     void close();
+    void unload();
 };

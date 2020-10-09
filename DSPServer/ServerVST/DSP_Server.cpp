@@ -36,27 +36,43 @@ void DSP_Server::ThreadProc(DSP_Server *self)
     {
         // Await client connection
         TRACE("Wait for new client connection\n");
-        if (!self->serverSocket.Accept(self->clientSocket)) goto fail;
+        if (!self->serverSocket.Accept(self->clientSocket))
+        {
+            TRACE("CWorkThread_Network::ThreadProc: stopping work thread\n");
+            self->bRunning = false;
+            break;
+        }
 
         // If CWorkThread_Network::Stop() was called, we're done
-        if (self->bCancel) break;
+        if (self->bCancel)
+        {
+            // normal completion
+            TRACE("Normal completion\n");
+            break;
+        }
+
+        // Get connect header
+        TRACE("Got client connection\n");
+        // Get header
+        ConnectHeader hdr;
+        int byteCount = self->clientSocket.Recv((char*)&hdr, sizeof(ConnectHeader));
+        if (byteCount <= 0)
+        {
+            TRACE("Error receiving ConnectHeader...\n");
+            self->clientSocket.Disconnect();
+            break;
+        }
+        TRACE("sample rate %d, block size %d\n", hdr.sampleRateHz, hdr.maxSamplesPerBlock);
+        self->pDSP->setSampleRate(float(hdr.sampleRateHz));
 
         // Receive and process data until the peer shuts down the connection
-        TRACE("Got client connection\n");
         if (!self->ClientLoop())
         {
             TRACE("Network error: disconnect and start over\n");
             self->clientSocket.Disconnect();
+            //self->bCancel = true;
         }
     }
-
-    // normal completion
-    TRACE("Normal completion\n");
-    self->bRunning = false;
-
-fail:
-    // network error
-    TRACE("CWorkThread_Network::ThreadProc: stopping work thread\n");
     self->bRunning = false;
 }
 
@@ -80,13 +96,14 @@ void DSP_Server::Stop()
 {
     if (pThread)
     {
+        bCancel = true;
+
         TRACE("Killing Work thread\n");
         if (strcmp(szAddr, ALL_PORTS_ADDR) == 0)
             clientSocket.Connect(LOOPBACK_ADDR, nPort, true);
         else
             clientSocket.Connect(szAddr, nPort, true);
 
-        bCancel = true;
         pThread->join();
 
         delete pThread;
@@ -183,6 +200,7 @@ bool DSP_Server::ClientLoop()
         ProcessSamples(hdr.frameCount, hdr.timeStamp);
         if (!SendSamples(hdr.frameCount)) return false;
     }
+
     return true;
 }
 

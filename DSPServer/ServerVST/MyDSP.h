@@ -1,8 +1,7 @@
 #pragma once
 #include <stdint.h>
-#define _USE_MATH_DEFINES
-#include <math.h>
 #include "PluginManager.h"
+#include "Protocol.h"
 
 class MyDSP
 {
@@ -15,7 +14,9 @@ public:
 
     bool command(char* cmd);
 
+    void setSampleRate(float sampleRateHz);
     void render(float** buffers, int nFrames);
+    void idle();
 
 protected:
     PluginManager plugin;
